@@ -1,5 +1,6 @@
 ---
 title: some other title
+header_url: "/test.html"
 ---
 
 # test.md
