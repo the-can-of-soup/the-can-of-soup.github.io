@@ -14,7 +14,7 @@
 
     <header>
       <div class="container">
-        <a id="a-title" href="{{ page.header_url | '/' | relative_url }}">
+        <a id="a-title" href="{{ page.header_url | default: '/' | relative_url }}">
           <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
         </a>
         <h2>{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
