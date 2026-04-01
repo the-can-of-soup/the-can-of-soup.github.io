@@ -30,3 +30,8 @@ inline code: `foo + 'bar' === 'baz'`
 footnote top[^1]
 
 [^1]: footnote bottom
+
+|table|other column|
+|-|-|
+|a|b|
+|c|d|
