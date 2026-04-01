@@ -24,3 +24,9 @@ let foo = 'bar';
 horizontal rule:
 
 ---
+
+inline code: `foo + 'bar' === 'baz'`
+
+footnote top[^1]
+
+[^1]: footnote bottom
