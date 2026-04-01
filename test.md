@@ -7,3 +7,20 @@ header_url: "/testefvwfve.html"
 This is a test markdown file
 
 _lorem ipsum dolor sit amet_
+
+```javascript
+// javascript code block
+let foo = 'bar';
+```
+
+1. numbered
+2. list
+
+- bullet
+- list
+
+> blockquote
+
+horizontal rule:
+
+---
