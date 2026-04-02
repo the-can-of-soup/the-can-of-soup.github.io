@@ -3,9 +3,8 @@
 
 // BEGIN CODE FROM pages-themes/primer/_sass/primer-support/lib/variables/colors.scss
 
-@import "color-system.scss";
+// @import "color-system.scss";
 // Color variables
-// stylelint-disable declaration-bang-space-before
 
 // State indicators.
 $status-pending:    desaturate($yellow-700, 15%) !default;
