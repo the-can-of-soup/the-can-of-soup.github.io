@@ -179,8 +179,8 @@ $bg-yellow-light:   $yellow-200 !default;
 
 // Text colors
 $text-blue:         $blue-500 !default;
-$text-gray-dark:    $gray-900 !default;
-$text-gray-light:   $gray-500 !default;
+$text-gray-dark:    #f0f6fc !default; // $gray-900
+$text-gray-light:   #9198a1 !default; // $gray-500
 $text-gray:         $gray-600 !default;
 $text-green:        $green-500 !default;
 $text-orange:       $orange-900 !default;
