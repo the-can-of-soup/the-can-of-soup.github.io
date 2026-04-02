@@ -1,8 +1,6 @@
 ---
 ---
 
-@import "{{ site.theme }}";
-
 // BEGIN CODE FROM pages-themes/primer/_sass/primer-support/lib/variables/colors.scss
 
 @import "color-system.scss";
@@ -74,3 +72,5 @@ $text-red:          $red-600 !default;
 $text-white:        $white !default;
 
 // END CODE BLOCK
+
+@import "{{ site.theme }}";
