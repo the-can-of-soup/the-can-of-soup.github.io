@@ -20,7 +20,8 @@ TO-DO: Write these sections:
   - Redraw Conditions (work timer, graphics updated, turbo mode, etc.)
   - Monitor Threads
   - Executable Hat Threads & Predicate Steps
-  - Full Timeline of a Frame- Threads Extension
+  - Full Timeline of a Frame
+- Threads Extension
   - Thread Type (reporter bubble formatting, `toString` and `toJSON` behavior, serialization, etc.) **(actually probably put this in reference manual)**
   - Thread Variables
   - Atomic Loop Blocks
