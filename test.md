@@ -65,7 +65,10 @@ footnote top[^1]
 |a|b|
 |c|d|
 
-<blockquote class="note">example note</blockquote>
+{% capture content %}
+example note
+{% endcapture %}
+{% include /includes/admonitions/info.md content=content %}
 
 <blockquote class="tip">example tip</blockquote>
 
