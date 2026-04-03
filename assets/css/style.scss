@@ -214,18 +214,23 @@ $text-white:        $white !default;
   }
   .admonitionNote {
     border-left-color: #1f6feb;
+    color: $text-gray-dark;
   }
   .admonitionTip {
     border-left-color: #238636;
+    color: $text-gray-dark;
   }
   .admonitionImportant {
     border-left-color: #8957e5;
+    color: $text-gray-dark;
   }
   .admonitionWarning {
     border-left-color: #9e6a03;
+    color: $text-gray-dark;
   }
   .admonitionCaution {
     border-left-color: #da3633;
+    color: $text-gray-dark;
   }
 
   // Inline code
