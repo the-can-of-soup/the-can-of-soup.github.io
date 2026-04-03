@@ -3,7 +3,7 @@ title: Threads Documentation
 header_url: "/penguinmod/threads_extension/docs/"
 ---
 
-[← Back to Home](/penguinmod/threads_extension)
+[← Back to Threads Home](/penguinmod/threads_extension)
 
 ### Pages
 - [Reference Manual](reference.html)
