@@ -4,3 +4,4 @@ remote_theme: pages-themes/primer@v0.6.0
 title: "Soup's Epic Site"
 plugins:
 - jekyll-remote-theme
+- jekyll-gfm-admonitions
