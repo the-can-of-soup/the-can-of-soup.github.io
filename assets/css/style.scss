@@ -231,7 +231,13 @@ $text-white:        $white !default;
 
   // Code block syntax highlighting
   .highlight .kd {
-    color: $text-blue;
+    color: #ff7b72;
+  }
+  .highlight .dl {
+    color: #a5d6ff;
+  }
+  .highlight .s1 {
+    color: #a5d6ff;
   }
 
   table {
