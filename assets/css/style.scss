@@ -211,9 +211,10 @@ $text-white:        $white !default;
   
   blockquote {
     border-left: 0.25em solid #3d444d;
-  }
-  blockquote .note {
-    border-left-color: #1f6feb;
+
+    .note {
+      border-left: 0.25em solid #1f6feb;
+    }
   }
 
   // Inline code
