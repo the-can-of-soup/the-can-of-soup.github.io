@@ -6,4 +6,4 @@ plugins:
 - jekyll-remote-theme
 - jekyll-gfm-admonitions
 exclude:
-- includes/
+- github/
