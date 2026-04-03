@@ -215,22 +215,52 @@ $text-white:        $white !default;
   blockquote.note {
     border-left-color: #1f6feb;
     color: $text-gray-dark;
+    p svg path {
+      fill: #1f6feb;
+    }
+    p span {
+      color: #1f6feb;
+    }
   }
   blockquote.tip {
     border-left-color: #238636;
     color: $text-gray-dark;
+    p svg path {
+      fill: #238636;
+    }
+    p span {
+      color: #238636;
+    }
   }
   blockquote.important {
     border-left-color: #8957e5;
     color: $text-gray-dark;
+    p svg path {
+      fill: #8957e5;
+    }
+    p span {
+      color: #8957e5;
+    }
   }
   blockquote.warning {
     border-left-color: #9e6a03;
     color: $text-gray-dark;
+    p svg path {
+      fill: #9e6a03;
+    }
+    p span {
+      color: #9e6a03;
+    }
   }
   blockquote.caution {
     border-left-color: #da3633;
     color: $text-gray-dark;
+    p svg path {
+      fill: #da3633;
+    }
+    p span {
+      color: #da3633;
+    }
   }
 
   // Inline code
