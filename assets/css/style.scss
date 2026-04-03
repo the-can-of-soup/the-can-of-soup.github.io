@@ -198,7 +198,7 @@ $text-white:        $white !default;
 }
 
 .content {
-  min-height: 600px;
+  min-height: calc(100vh - 210px);
 }
 
 .footer {
