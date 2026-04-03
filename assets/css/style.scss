@@ -205,6 +205,10 @@ $text-white:        $white !default;
   hr {
     background-color: #3d444d;
   }
+
+  code {
+    background-color: #656c7633; // alternate candidate: #1b1f23
+  }
   
   .highlight pre,
   pre {
