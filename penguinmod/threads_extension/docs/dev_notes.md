@@ -25,7 +25,7 @@ Note: if the thread is the current thread and it is orphaned (not in `runtime.th
 ## Sequencer behavior with little to no threads
 
 - If after a tick there are no threads in `runtime.threads`, the frame immediately ends and a redraw is triggered after the frame time is met.
-- If before a frame there are no threads in `runtime.threads`, no ticks will occurr that frame; instead, the frame immediately ends and a redraw is triggered after the frame time is met.
+- If before a frame there are no threads in `runtime.threads`, no ticks will occur that frame; instead, the frame immediately ends and a redraw is triggered after the frame time is met.
 
 ## Monitor updater threads
 
@@ -33,11 +33,11 @@ Note: if the thread is the current thread and it is orphaned (not in `runtime.th
 - Monitor updater threads are added to the end of `runtime.threads` before the start of every _frame_ (immediately after executable hat threads).[^4]
 - Monitor updater threads exit immediately after being stepped once. If they were the only thread in `runtime.threads`, this means there are now 0 threads, immediately ending the frame and having the same effect as if graphics updated was `true`.
 
-[^4]: https://github.com/PenguinMod/PenguinMod-Vm/blob/5510cff79cd043256dcb6dac0375f2261e56be09/src/engine/runtime.js#L3118
+[^4]: [https://github.com/PenguinMod/PenguinMod-Vm/blob/5510cff79cd043256dcb6dac0375f2261e56be09/src/engine/runtime.js#L3118↗](https://github.com/PenguinMod/PenguinMod-Vm/blob/5510cff79cd043256dcb6dac0375f2261e56be09/src/engine/runtime.js#L3118)
 
 ## Execution phase
 
-- Is defined here as everything that happens during [this call to `sequencer.stepThreads`](https://github.com/PenguinMod/PenguinMod-Vm/blob/6aae00994609a76f74f81036893e5511f0f2a9ed/src/engine/runtime.js#L3126C47-L3126C47).
+- Is defined here as everything that happens during [this call to `sequencer.stepThreads`↗](https://github.com/PenguinMod/PenguinMod-Vm/blob/6aae00994609a76f74f81036893e5511f0f2a9ed/src/engine/runtime.js#L3126C47-L3126C47).
 
 ## Executable hat threads & predicate steps
 
@@ -50,9 +50,9 @@ Note: if the thread is the current thread and it is orphaned (not in `runtime.th
 - Interestingly, edge-activated executable hat threads are created and therefore initially stepped _before `runtime.redrawRequested` (graphics updated) is set to `false`_; this means that the graphics updated value from the end of the previous frame should actually bleed into predicate steps of the current frame (although this has yet to be tested).[^2][^5]
 - Keep in mind that both during and after the predicate step, the thread is still an executable hat thread, so `executableHat` will be `true` even while the thread is being stepped normally by the sequencer during the execution phase.
 
-[^2]: https://github.com/PenguinMod/PenguinMod-Vm/blob/5510cff79cd043256dcb6dac0375f2261e56be09/src/engine/runtime.js#L3109
-[^3]: https://github.com/PenguinMod/PenguinMod-Vm/blob/5510cff79cd043256dcb6dac0375f2261e56be09/src/engine/runtime.js#L2786
-[^5]: https://github.com/PenguinMod/PenguinMod-Vm/blob/5510cff79cd043256dcb6dac0375f2261e56be09/src/engine/runtime.js#L3117
+[^2]: [https://github.com/PenguinMod/PenguinMod-Vm/blob/5510cff79cd043256dcb6dac0375f2261e56be09/src/engine/runtime.js#L3109↗](https://github.com/PenguinMod/PenguinMod-Vm/blob/5510cff79cd043256dcb6dac0375f2261e56be09/src/engine/runtime.js#L3109)
+[^3]: [https://github.com/PenguinMod/PenguinMod-Vm/blob/5510cff79cd043256dcb6dac0375f2261e56be09/src/engine/runtime.js#L2786↗](https://github.com/PenguinMod/PenguinMod-Vm/blob/5510cff79cd043256dcb6dac0375f2261e56be09/src/engine/runtime.js#L2786)
+[^5]: [https://github.com/PenguinMod/PenguinMod-Vm/blob/5510cff79cd043256dcb6dac0375f2261e56be09/src/engine/runtime.js#L3117↗](https://github.com/PenguinMod/PenguinMod-Vm/blob/5510cff79cd043256dcb6dac0375f2261e56be09/src/engine/runtime.js#L3117)
 
 ## Restartable and non-restartable hats
 
@@ -60,4 +60,3 @@ Note: if the thread is the current thread and it is orphaned (not in `runtime.th
 - "Attempting to start a hat" is defined here as a call to `startHats` that would trigger the hat. This includes when edge-activated `Scratch.BlockType.HAT` blocks are started internally in the "frame start" phase or by an extension in the "before execute" phase.
 - When a non-restartable hat is attempted to be started when there is already a thread in the target with the same top block, nothing will happen.
 - When a restartable hat is attempted to be started when there is already a thread in the target with the same top block, the original thread will be replaced by the new thread in `runtime.threads`. This causes the old thread to become orphaned, even if it is currently stepping.
-- 
