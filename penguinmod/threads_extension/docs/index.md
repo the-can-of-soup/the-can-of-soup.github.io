@@ -11,7 +11,7 @@ header_url: "/penguinmod/threads_extension/docs/"
 
 ### Table of Contents
 - [General](#general)
-  - [Threads & Stacks](#threads--stacks)
+  - [Threads & Stacks](#threads-amp-stacks)
 
 {% capture content %}
 TO-DO: Write these sections:
