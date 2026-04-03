@@ -70,10 +70,22 @@ example note
 {% endcapture %}
 {% include admonitions/info.md content=content %}
 
-<blockquote class="tip">example tip</blockquote>
+{% capture content %}
+example tip
+{% endcapture %}
+{% include admonitions/tip.md content=content %}
 
-<blockquote class="important">example important note</blockquote>
+{% capture content %}
+example important note
+{% endcapture %}
+{% include admonitions/important.md content=content %}
 
-<blockquote class="warning">example warning</blockquote>
+{% capture content %}
+example warning
+{% endcapture %}
+{% include admonitions/warning.md content=content %}
 
-<blockquote class="caution">example caution</blockquote>
+{% capture content %}
+example caution
+{% endcapture %}
+{% include admonitions/caution.md content=content %}
