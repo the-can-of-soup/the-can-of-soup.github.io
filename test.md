@@ -64,3 +64,18 @@ footnote top[^1]
 |-|-|
 |a|b|
 |c|d|
+
+> [!NOTE]
+> example note
+
+> [!TIP]
+> example tip
+
+> [!IMPORTANT]
+> example important note
+
+> [!WARNING]
+> example warning
+
+> [!CAUTION]
+> example caution
