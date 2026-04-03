@@ -229,6 +229,11 @@ $text-white:        $white !default;
     background-color: #00000000;
   }
 
+  // Code block syntax highlighting
+  .highlight .o {
+    background-color: $text-gray-dark;
+  }
+
   table {
     th, td {
       border: 1px solid #3d444d;
