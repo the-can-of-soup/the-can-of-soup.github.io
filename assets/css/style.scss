@@ -216,50 +216,50 @@ $text-white:        $white !default;
     border-left-color: #1f6feb;
     color: $text-gray-dark;
     p svg path {
-      fill: #1f6feb;
+      fill: #4493f8;
     }
     p span {
-      color: #1f6feb;
+      color: #4493f8;
     }
   }
   blockquote.tip {
     border-left-color: #238636;
     color: $text-gray-dark;
     p svg path {
-      fill: #238636;
+      fill: #3fb950;
     }
     p span {
-      color: #238636;
+      color: #3fb950;
     }
   }
   blockquote.important {
     border-left-color: #8957e5;
     color: $text-gray-dark;
     p svg path {
-      fill: #8957e5;
+      fill: #ab7df8;
     }
     p span {
-      color: #8957e5;
+      color: #ab7df8;
     }
   }
   blockquote.warning {
     border-left-color: #9e6a03;
     color: $text-gray-dark;
     p svg path {
-      fill: #9e6a03;
+      fill: #d29922;
     }
     p span {
-      color: #9e6a03;
+      color: #d29922;
     }
   }
   blockquote.caution {
     border-left-color: #da3633;
     color: $text-gray-dark;
     p svg path {
-      fill: #da3633;
+      fill: #f85149;
     }
     p span {
-      color: #da3633;
+      color: #f85149;
     }
   }
 
