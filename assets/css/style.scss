@@ -212,23 +212,23 @@ $text-white:        $white !default;
   blockquote {
     border-left: 0.25em solid #3d444d;
   }
-  .admonitionNote {
+  blockquote.note {
     border-left-color: #1f6feb;
     color: $text-gray-dark;
   }
-  .admonitionTip {
+  blockquote.tip {
     border-left-color: #238636;
     color: $text-gray-dark;
   }
-  .admonitionImportant {
+  blockquote.important {
     border-left-color: #8957e5;
     color: $text-gray-dark;
   }
-  .admonitionWarning {
+  blockquote.warning {
     border-left-color: #9e6a03;
     color: $text-gray-dark;
   }
-  .admonitionCaution {
+  blockquote.caution {
     border-left-color: #da3633;
     color: $text-gray-dark;
   }
