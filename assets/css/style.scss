@@ -201,4 +201,9 @@ $text-white:        $white !default;
   h1, h2 {
     border-bottom: 1px solid #3d444db3;
   }
+  
+  .highlight pre,
+  pre {
+    background-color: #151b23;
+  }
 }
