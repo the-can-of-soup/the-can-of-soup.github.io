@@ -193,12 +193,21 @@ $text-white:        $white !default;
 
 @import "{{ site.theme }}";
 
-#header {
+.header {
   color: $text-gray-dark;
 
   &:hover {
     bottom: 2px;
   }
+}
+
+.footer {
+  // color: #9198a1;
+  border-top: 1px solid #3d444d;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 15px;
 }
 
 .markdown-body {
@@ -341,14 +350,5 @@ $text-white:        $white !default;
     color: #9198a1;
     border-top: 1px solid #3d444d;
     font-size: 12px;
-  }
-
-  .footer {
-    // color: #9198a1;
-    border-top: 1px solid #3d444d;
-    font-size: 14px;
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 15px;
   }
 }
