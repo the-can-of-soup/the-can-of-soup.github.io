@@ -231,7 +231,7 @@ $text-white:        $white !default;
 
   // Code block syntax highlighting
   .highlight .kd {
-    background-color: $text-gray-dark;
+    color: $text-gray-dark;
   }
 
   table {
