@@ -68,7 +68,7 @@ footnote top[^1]
 {% capture content %}
 example note
 {% endcapture %}
-{% include admonitions/info.md content=content %}
+{% include admonitions/note.md content=content %}
 
 {% capture content %}
 example tip
