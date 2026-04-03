@@ -11,6 +11,21 @@ _lorem ipsum dolor sit amet_
 ```javascript
 // javascript code block
 let foo = 'bar';
+class MyClass {
+  constructor(a, b = null) {
+    return a?.example;
+  }
+  static staticMethod(a, b, ...) {
+    let x = 4;
+    return x;
+  }
+}
+MyClass.staticMethod(1, 2);
+function example({a, b, c}) {
+  let x = d => d + 1;
+  let y = (function(d){ return d + 1; });
+  return (d, e) => (d + e);
+}
 ```
 
 1. numbered
