@@ -213,16 +213,32 @@ $text-white:        $white !default;
     border-left: 0.25em solid #3d444d;
   }
 
+  // Inline code
   code {
     background-color: #656c7633; // alternate candidate: #1b1f23
   }
-  
+
+  // Large code blocks
   .highlight pre,
   pre {
     background-color: #151b23;
   }
 
+  // Background of large code blocks (non-rounded rectangle behind main rounded rectangle)
   .highlight {
     background-color: #00000000;
+  }
+
+  table {
+    td {
+      border: 1px solid #3d444d;
+    }
+
+    tr {
+      border-top: 1px solid #3d444db3;
+      &:nth-child(2n) {
+        background-color: #151b23;
+      }
+    }
   }
 }
