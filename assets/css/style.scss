@@ -195,6 +195,10 @@ $text-white:        $white !default;
 
 #header {
   color: $text-gray-dark;
+
+  &:hover {
+    bottom: 2px;
+  }
 }
 
 .markdown-body {
@@ -212,7 +216,7 @@ $text-white:        $white !default;
     &:hover {
       text-decoration: underline dotted;
       position: relative;
-      bottom: 2px;
+      bottom: 1px;
     }
   }
   
