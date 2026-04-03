@@ -46,4 +46,4 @@ header_url: "/penguinmod/threads_extension/docs/"
 
 ### Threads & Stacks
 
-https://github.com/the-can-of-soup/pm_threads/raw/refs/heads/main/assets/Threads%20&%20Stacks.mp4
+<video src="https://github.com/the-can-of-soup/pm_threads/raw/refs/heads/main/assets/Threads%20&%20Stacks.mp4">
