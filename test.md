@@ -26,6 +26,20 @@ function example({a, b, c}) {
   let y = (function(d){ return d + 1; });
   return (d, e) => (d + e);
 }
+if (true) {
+  try {
+  } catch {
+  }
+}
+while (false) {
+}
+do {
+  debugger;
+  break;
+  continue;
+} while (false);
+/* multiline comment
+second line */
 ```
 
 1. numbered
