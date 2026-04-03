@@ -193,6 +193,10 @@ $text-white:        $white !default;
 
 @import "{{ site.theme }}";
 
+#header {
+  color: $text-gray-dark;
+}
+
 .markdown-body {
   h1, h2 {
     border-bottom: 1px solid #3d444db3;
