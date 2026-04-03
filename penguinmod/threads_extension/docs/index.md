@@ -36,7 +36,7 @@ TO-DO: Write these sections:
   - Broadcast Blocks
   - Atomic Loop Blocks
 {% endcapture %}
-{% include admonitions/info.md content=content %}
+{% include admonitions/note.md content=content %}
 
 ## General
 
