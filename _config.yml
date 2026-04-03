@@ -5,3 +5,5 @@ title: "Soup's Epic Site"
 plugins:
 - jekyll-remote-theme
 - jekyll-gfm-admonitions
+exclude:
+- includes/
