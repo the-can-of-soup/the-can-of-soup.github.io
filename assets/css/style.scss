@@ -211,10 +211,21 @@ $text-white:        $white !default;
   
   blockquote {
     border-left: 0.25em solid #3d444d;
-
-    .note {
-      border-left: 0.25em solid #1f6feb;
-    }
+  }
+  .admonitionNote {
+    border-left-color: #1f6feb;
+  }
+  .admonitionTip {
+    border-left-color: #238636;
+  }
+  .admonitionImportant {
+    border-left-color: #8957e5;
+  }
+  .admonitionWarning {
+    border-left-color: #9e6a03;
+  }
+  .admonitionCaution {
+    border-left-color: #da3633;
   }
 
   // Inline code
