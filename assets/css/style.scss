@@ -197,4 +197,8 @@ $text-white:        $white !default;
   blockquote {
     border-left: 0.25em solid #3d444d;
   }
+
+  h1, h2 {
+    border-bottom: 1px solid #3d444db3;
+  }
 }
