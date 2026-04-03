@@ -195,10 +195,6 @@ $text-white:        $white !default;
 
 .header {
   color: $text-gray-dark;
-
-  &:hover {
-    bottom: 2px;
-  }
 }
 
 .content {
@@ -229,7 +225,7 @@ $text-white:        $white !default;
     &:hover {
       text-decoration: underline dotted;
       position: relative;
-      bottom: 1px;
+      bottom: 0.1em;
     }
   }
   
