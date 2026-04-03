@@ -43,6 +43,6 @@ TO-DO: Write these sections:
 
 ... TODO ...
 
-<video src="assets/Threads%20&%20Stacks.mp4" width="480" controls>
+<video src="assets/Threads%20&%20Stacks.mp4" width="480" controls></video>
 
 ... TODO ...
