@@ -208,8 +208,11 @@ $text-white:        $white !default;
 
   a {
     text-decoration: underline solid;
+    
     &:hover {
       text-decoration: underline dotted;
+      position: relative;
+      bottom: 2px;
     }
   }
   
