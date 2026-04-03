@@ -165,11 +165,12 @@ _Menus: `TARGET` uses [Target](#target), `INDEX` uses [Insert Index](#insert-ind
 
 Creates a new thread that will execute in `TARGET`; then, inserts it into the [threads array](#threads---arraythread) at `INDEX`.
 
-> [!NOTE]
->
-> Local ("For this sprite only") variables have noteworthy behavior when used inside `SUBSTACK` where `TARGET` is not the current target:
-> - If it exists, the variable with the same name in `TARGET` is used.
-> - If no variable with the same name exists in `TARGET`, **a new local variable will be created** in `TARGET` with the name, but this variable will have the same ID as the variable in the original sprite. This can cause odd behavior and/or bugs with variable monitors due to ID conflict.
+{% capture content %}
+Local ("For this sprite only") variables have noteworthy behavior when used inside `SUBSTACK` where `TARGET` is not the current target:
+- If it exists, the variable with the same name in `TARGET` is used.
+- If no variable with the same name exists in `TARGET`, **a new local variable will be created** in `TARGET` with the name, but this variable will have the same ID as the variable in the original sprite. This can cause odd behavior and/or bugs with variable monitors due to ID conflict.
+{% endcapture %}
+{% include admonitions/note.md content=content %}
 
 <details>
   <summary>Internal behavior</summary>
@@ -271,11 +272,12 @@ Returns user-friendly info text for the thread as shown in the reporter bubble.[
 
 ## Thread Variables
 
-> [!TIP]
->
-> The variable name `__label__` is special. If this variable exists in a thread, that thread's reporter bubble will show the stringified contents of it italicised next to other info. This is meant to be used to add human-readable identifiers or notes to a thread, which will then be seen in the editor or when debugging.
->
-> Other than visuals in the editor, this variable can be used entirely as a normal variable, and even hold non-string types; however this is not recommended.
+{% capture content %}
+The variable name `__label__` is special. If this variable exists in a thread, that thread's reporter bubble will show the stringified contents of it italicised next to other info. This is meant to be used to add human-readable identifiers or notes to a thread, which will then be seen in the editor or when debugging.
+
+Other than visuals in the editor, this variable can be used entirely as a normal variable, and even hold non-string types; however this is not recommended.
+{% endcapture %}
+{% include admonitions/tip.md content=content %}
 
 ### `(get [VARIABLE] in [THREAD])` -> Any
 <img src="assets/blocks/get_foo_in.png">
