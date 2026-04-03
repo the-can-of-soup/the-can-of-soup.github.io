@@ -1,3 +1,8 @@
+---
+title: Threads Documentation
+header_url: "/penguinmod/threads_extension/docs/"
+---
+
 # Dev Notes
 
 ## Thread state table
