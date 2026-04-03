@@ -65,12 +65,12 @@ footnote top[^1]
 |a|b|
 |c|d|
 
-<blockquote class="admonitionNote">example note</blockquote>
+<blockquote class="note">example note</blockquote>
 
-<blockquote class="admonitionTip">example tip</blockquote>
+<blockquote class="tip">example tip</blockquote>
 
-<blockquote class="admonitionImportant">example important note</blockquote>
+<blockquote class="important">example important note</blockquote>
 
-<blockquote class="admonitionWarning">example warning</blockquote>
+<blockquote class="warning">example warning</blockquote>
 
-<blockquote class="admonitionCaution">example caution</blockquote>
+<blockquote class="caution">example caution</blockquote>
