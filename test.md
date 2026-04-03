@@ -65,17 +65,12 @@ footnote top[^1]
 |a|b|
 |c|d|
 
-> [!NOTE]
-> example note
+<blockquote class="note">example note</blockquote>
 
-> [!TIP]
-> example tip
+<blockquote class="tip">example tip</blockquote>
 
-> [!IMPORTANT]
-> example important note
+<blockquote class="important">example important note</blockquote>
 
-> [!WARNING]
-> example warning
+<blockquote class="warning">example warning</blockquote>
 
-> [!CAUTION]
-> example caution
+<blockquote class="caution">example caution</blockquote>
