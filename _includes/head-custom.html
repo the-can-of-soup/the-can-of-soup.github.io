@@ -1,44 +1,42 @@
 <script>
-  (function(){
-    function fixFootnotes() {
-      let refs = Array.from(document.getElementsByClassName('footnote-ref')).map(el => el.firstElementChild);
-      let backRefs = Array.from(document.getElementsByClassName('footnote-backref'));
-      
-      // Add surrounding brackets to references
-      for (let ref of refs) {
-        if (ref.innerText.startsWith('[')) {
-          console.warn('fixFootnotes() detected that footnotes were already fixed; cancelling');
-          return;
-        }
-        ref.innerText = `[${ref.innerText}]`;
-      }
+  function fixFootnotes() {
+    let refs = Array.from(document.getElementsByClassName('footnote-ref')).map(el => el.firstElementChild);
+    let backRefs = Array.from(document.getElementsByClassName('footnote-backref'));
     
-      // Add unique indentifier to references
-      let footnoteRefCounts = new Map();
-      for (const ref of refs) {
-        const fnId = new URL(ref.href).hash.slice(3); // e.g. "#fn12" -> "12"
-        const refId = footnoteRefCounts.get(fnId) ?? 0;
-        footnoteRefCounts.set(fnId, refId + 1);
-        ref.id = `fnref${fnId}:${refId}`;
+    // Add surrounding brackets to references
+    for (let ref of refs) {
+      if (ref.innerText.startsWith('[')) {
+        console.warn('fixFootnotes() detected that footnotes were already fixed; cancelling');
+        return;
       }
-      
-      // Add better back-references
-      for (const oldBackRef of backRefs) {
-        const fnId = new URL(oldBackRef.href).hash.slice(6); // e.g. "#fnref12" -> "12"
-        const refCount = footnoteRefCounts.get(fnId) ?? 0;
-        let lastBackRef = oldBackRef;
-        for (let i = 0; i < refCount; i++) {
-          const backRef = document.createElement('a');
-          backRef.className = 'footnote-backref';
-          backRef.href = `#fnref${fnId}:${i}`;
-          backRef.innerHTML = i === 0 ? `↩` : `↩<sup>${i + 1}</sup>`;
-          lastBackRef.after(backRef);
-          lastBackRef = backRef;
-        }
-        oldBackRef.remove();
-      }
+      ref.innerText = `[${ref.innerText}]`;
     }
+  
+    // Add unique indentifier to references
+    let footnoteRefCounts = new Map();
+    for (const ref of refs) {
+      const fnId = new URL(ref.href).hash.slice(3); // e.g. "#fn12" -> "12"
+      const refId = footnoteRefCounts.get(fnId) ?? 0;
+      footnoteRefCounts.set(fnId, refId + 1);
+      ref.id = `fnref${fnId}:${refId}`;
+    }
+    
+    // Add better back-references
+    for (const oldBackRef of backRefs) {
+      const fnId = new URL(oldBackRef.href).hash.slice(6); // e.g. "#fnref12" -> "12"
+      const refCount = footnoteRefCounts.get(fnId) ?? 0;
+      let lastBackRef = oldBackRef;
+      for (let i = 0; i < refCount; i++) {
+        const backRef = document.createElement('a');
+        backRef.className = 'footnote-backref';
+        backRef.href = `#fnref${fnId}:${i}`;
+        backRef.innerHTML = i === 0 ? `↩` : `↩<sup>${i + 1}</sup>`;
+        lastBackRef.after(backRef);
+        lastBackRef = backRef;
+      }
+      oldBackRef.remove();
+    }
+  }
 
-    fixFootnotes();
-  })();
+  fixFootnotes();
 </script>
