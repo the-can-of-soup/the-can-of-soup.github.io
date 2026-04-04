@@ -6,93 +6,91 @@ header_url: "/penguinmod/threads_extension/docs/"
 # Reference Manual
 
 ### Table of Contents
-- [\(top of page\)](#threads-reference)
-    - [Table of Contents](#table-of-contents)
 - [Blocks](#blocks)
   - [Thread Getters](#thread-getters)
-    - [`(active thread)` -> Thread](#active-thread---thread)
-    - [`(active index)` -> Number](#active-index---number)
-    - [`(null thread)` -> Thread](#null-thread---thread)
-    - [`(thread at (INDEX v))` -> Thread](#thread-at-index-v---thread)
+    - [`(active thread)` -> Thread](#codeactive-threadcode--gt-thread)
+    - [`(active index)` -> Number](#codeactive-indexcode--gt-number)
+    - [`(null thread)` -> Thread](#codenull-threadcode--gt-thread)
+    - [`(thread at (INDEX v))` -> Thread](#codethread-at-index-vcode--gt-thread)
   - [Thread Builders](#thread-builders)
-    - [`new thread in (TARGET v) inserted (INDEX v) {SUBSTACK}` -> Undefined](#new-thread-in-target-v-inserted-index-v-substack---undefined)
-    - [`(new thread in (TARGET v) inserted (INDEX v) {SUBSTACK})` -> Thread](#new-thread-in-target-v-inserted-index-v-substack---thread)
+    - [`new thread in (TARGET v) inserted (INDEX v) {SUBSTACK}` -> Undefined](#codenew-thread-in-target-v-inserted-index-v-substackcode--gt-undefined)
+    - [`(new thread in (TARGET v) inserted (INDEX v) {SUBSTACK})` -> Thread](#codenew-thread-in-target-v-inserted-index-v-substackcode--gt-thread)
   - [Thread Properties](#thread-properties)
-    - [`(target of [THREAD])` -> Target](#target-of-thread---target)
-    - [`(id of [THREAD])` -> String](#id-of-thread---string)
-    - [`(index of [THREAD])` -> Number](#index-of-thread---number)
-    - [`(status [STATUSFORMAT v] of [THREAD])` -> Number | String](#status-statusformat-v-of-thread---number--string)
-    - [`(unpaused status [STATUSFORMAT v] of [THREAD])` -> Number | String](#unpaused-status-statusformat-v-of-thread---number--string)
-    - [`(info text of [THREAD])` -> String](#info-text-of-thread---string)
+    - [`(target of [THREAD])` -> Target](#codetarget-of-threadcode--gt-target)
+    - [`(id of [THREAD])` -> String](#codeid-of-threadcode--gt-string)
+    - [`(index of [THREAD])` -> Number](#codeindex-of-threadcode--gt-number)
+    - [`(status [STATUSFORMAT v] of [THREAD])` -> Number | String](#codestatus-statusformat-v-of-threadcode--gt-number--string)
+    - [`(unpaused status [STATUSFORMAT v] of [THREAD])` -> Number | String](#codeunpaused-status-statusformat-v-of-threadcode--gt-number--string)
+    - [`(info text of [THREAD])` -> String](#codeinfo-text-of-threadcode--gt-string)
   - [Thread Variables](#thread-variables)
-    - [`(get [VARIABLE] in [THREAD])` -> Any](#get-variable-in-thread---any)
-    - [`set [VARIABLE] in [THREAD] to [VALUE]` -> Undefined](#set-variable-in-thread-to-value---undefined)
-    - [`(variables in [THREAD])` -> Array\[String\]](#variables-in-thread---arraystring)
-    - [`delete [VARIABLE] in [THREAD]` -> Undefined](#delete-variable-in-thread---undefined)
+    - [`(get [VARIABLE] in [THREAD])` -> Any](#codeget-variable-in-threadcode--gt-any)
+    - [`set [VARIABLE] in [THREAD] to [VALUE]` -> Undefined](#codeset-variable-in-thread-to-valuecode--gt-undefined)
+    - [`(variables in [THREAD])` -> Array\[String\]](#codevariables-in-threadcode--gt-arraystring)
+    - [`delete [VARIABLE] in [THREAD]` -> Undefined](#codedelete-variable-in-threadcode--gt-undefined)
   - [Boolean Thread Operators](#boolean-thread-operators)
-    - [`<[VALUE] is a thread?>` -> Boolean](#value-is-a-thread---boolean)
-    - [`<[THREADONE] is [THREADTWO]>` -> Boolean](#threadone-is-threadtwo---boolean)
-    - [`<[THREAD] is null?>` -> Boolean](#thread-is-null---boolean)
-    - [`<[THREAD] is alive?>` -> Boolean](#thread-is-alive---boolean)
-    - [`<[THREAD] exited naturally?>` -> Boolean](#thread-exited-naturally---boolean)
-    - [`<[THREAD] was killed?>` -> Boolean](#thread-was-killed---boolean)
-    - [`<[THREAD] was paused manually?>` -> Boolean](#thread-was-paused-manually---boolean)
-    - [`<[THREAD] is in limbo?>` -> Boolean](#thread-is-in-limbo---boolean)
-    - [`<[THREAD] is orphaned?>` -> Boolean](#thread-is-orphaned---boolean)
-    - [`<[THREAD] is a monitor updater?>` -> Boolean](#thread-is-a-monitor-updater---boolean)
-    - [`<[THREAD] is an executable hat thread?>` -> Boolean](#thread-is-an-executable-hat-thread---boolean)
-    - [`<[THREAD] was started by clicking in the editor?>` -> Boolean](#thread-was-started-by-clicking-in-the-editor---boolean)
+    - [`<[VALUE] is a thread?>` -> Boolean](#codeltvalue-is-a-threadgtcode--gt-boolean)
+    - [`<[THREADONE] is [THREADTWO]>` -> Boolean](#codeltthreadone-is-threadtwogtcode--gt-boolean)
+    - [`<[THREAD] is null?>` -> Boolean](#codeltthread-is-nullgtcode--gt-boolean)
+    - [`<[THREAD] is alive?>` -> Boolean](#codeltthread-is-alivegtcode--gt-boolean)
+    - [`<[THREAD] exited naturally?>` -> Boolean](#codeltthread-exited-naturallygtcode--gt-boolean)
+    - [`<[THREAD] was killed?>` -> Boolean](#codeltthread-was-killedgtcode--gt-boolean)
+    - [`<[THREAD] was paused manually?>` -> Boolean](#codeltthread-was-paused-manuallygtcode--gt-boolean)
+    - [`<[THREAD] is in limbo?>` -> Boolean](#codeltthread-is-in-limbogtcode--gt-boolean)
+    - [`<[THREAD] is orphaned?>` -> Boolean](#codeltthread-is-orphanedgtcode--gt-boolean)
+    - [`<[THREAD] is a monitor updater?>` -> Boolean](#codeltthread-is-a-monitor-updatergtcode--gt-boolean)
+    - [`<[THREAD] is an executable hat thread?>` -> Boolean](#codeltthread-is-an-executable-hat-threadgtcode--gt-boolean)
+    - [`<[THREAD] was started by clicking in the editor?>` -> Boolean](#codeltthread-was-started-by-clicking-in-the-editorgtcode--gt-boolean)
   - [Thread Actions](#thread-actions)
-    - [`kill [THREAD]` -> Undefined](#kill-thread---undefined)
-    - [`pause [THREAD]` -> Undefined](#pause-thread---undefined)
-    - [`unpause [THREAD]` -> Undefined](#unpause-thread---undefined)
+    - [`kill [THREAD]` -> Undefined](#codekill-threadcode--gt-undefined)
+    - [`pause [THREAD]` -> Undefined](#codepause-threadcode--gt-undefined)
+    - [`unpause [THREAD]` -> Undefined](#codeunpause-threadcode--gt-undefined)
   - [Yielding](#yielding)
-    - [`yield` -> Undefined](#yield---undefined)
-    - [`yield [TIMES] times` -> Undefined](#yield-times-times---undefined)
-    - [`yield to previous thread` -> Undefined](#yield-to-previous-thread---undefined)
-    - [`yield to [ACTIVETHREAD]` -> Undefined](#yield-to-activethread---undefined)
-    - [`yield to thread at (INDEX v)` -> Undefined](#yield-to-thread-at-index-v---undefined)
-    - [`yield to end of tick` -> Undefined](#yield-to-end-of-tick---undefined)
+    - [`yield` -> Undefined](#codeyieldcode--gt-undefined)
+    - [`yield [TIMES] times` -> Undefined](#codeyield-times-timescode--gt-undefined)
+    - [`yield to previous thread` -> Undefined](#codeyield-to-previous-threadcode--gt-undefined)
+    - [`yield to [ACTIVETHREAD]` -> Undefined](#codeyield-to-activethreadcode--gt-undefined)
+    - [`yield to thread at (INDEX v)` -> Undefined](#codeyield-to-thread-at-index-vcode--gt-undefined)
+    - [`yield to end of tick` -> Undefined](#codeyield-to-end-of-tickcode--gt-undefined)
   - [Broadcasts](#broadcasts)
-    - [`broadcast [MESSAGE v] to (INDEX v)` -> Undefined](#broadcast-message-v-to-index-v---undefined)
-    - [`broadcast [MESSAGE v] to (INDEX v) and wait` -> Undefined](#broadcast-message-v-to-index-v-and-wait---undefined)
-    - [`step [MESSAGE v] immediately and return` -> Undefined](#step-message-v-immediately-and-return---undefined)
-    - [`(last broadcast threads)` -> Array\[Thread\]](#last-broadcast-threads---arraythread)
-    - [`(first thread from last broadcast)` -> Thread](#first-thread-from-last-broadcast---thread)
+    - [`broadcast [MESSAGE v] to (INDEX v)` -> Undefined](#codebroadcast-message-v-to-index-vcode--gt-undefined)
+    - [`broadcast [MESSAGE v] to (INDEX v) and wait` -> Undefined](#codebroadcast-message-v-to-index-v-and-waitcode--gt-undefined)
+    - [`step [MESSAGE v] immediately and return` -> Undefined](#codestep-message-v-immediately-and-returncode--gt-undefined)
+    - [`(last broadcast threads)` -> Array\[Thread\]](#codelast-broadcast-threadscode--gt-arraythread)
+    - [`(first thread from last broadcast)` -> Thread](#codefirst-thread-from-last-broadcastcode--gt-thread)
   - [Threads Array](#threads-array)
-    - [`(threads)` -> Array\[Thread\]](#threads---arraythread)
-    - [`(threads in (TARGET v))` -> Array\[Thread\]](#threads-in-target-v---arraythread)
-    - [`set threads to [THREADS] and yield to [ACTIVETHREAD]` -> Undefined](#set-threads-to-threads-and-yield-to-activethread---undefined)
-    - [`set threads to [THREADS] and yield to thread at (ACTIVEINDEX v)` -> Undefined](#set-threads-to-threads-and-yield-to-thread-at-activeindex-v---undefined)
-    - [`move [THREAD] to (INDEX v)` -> Undefined](#move-thread-to-index-v---undefined)
-    - [`swap [THREADONE] with [THREADTWO]` -> Undefined](#swap-threadone-with-threadtwo---undefined)
+    - [`(threads)` -> Array\[Thread\]](#codethreadscode--gt-arraythread)
+    - [`(threads in (TARGET v))` -> Array\[Thread\]](#codethreads-in-target-vcode--gt-arraythread)
+    - [`set threads to [THREADS] and yield to [ACTIVETHREAD]` -> Undefined](#codeset-threads-to-threads-and-yield-to-activethreadcode--gt-undefined)
+    - [`set threads to [THREADS] and yield to thread at (ACTIVEINDEX v)` -> Undefined](#codeset-threads-to-threads-and-yield-to-thread-at-activeindex-vcode--gt-undefined)
+    - [`move [THREAD] to (INDEX v)` -> Undefined](#codemove-thread-to-index-vcode--gt-undefined)
+    - [`swap [THREADONE] with [THREADTWO]` -> Undefined](#codeswap-threadone-with-threadtwocode--gt-undefined)
   - [Atomic Loops](#atomic-loops)
-    - [`repeat [TIMES] without yielding {SUBSTACK}` -> Undefined](#repeat-times-without-yielding-substack---undefined)
-    - [`repeat until [CONDITION] without yielding {SUBSTACK}` -> Undefined](#repeat-until-condition-without-yielding-substack---undefined)
-    - [`while [CONDITION] without yielding {SUBSTACK}` -> Undefined](#while-condition-without-yielding-substack---undefined)
-    - [`forever without yielding {SUBSTACK}` -> Undefined](#forever-without-yielding-substack---undefined)
+    - [`repeat [TIMES] without yielding {SUBSTACK}` -> Undefined](#coderepeat-times-without-yielding-substackcode--gt-undefined)
+    - [`repeat until [CONDITION] without yielding {SUBSTACK}` -> Undefined](#coderepeat-until-condition-without-yielding-substackcode--gt-undefined)
+    - [`while [CONDITION] without yielding {SUBSTACK}` -> Undefined](#codewhile-condition-without-yielding-substackcode--gt-undefined)
+    - [`forever without yielding {SUBSTACK}` -> Undefined](#codeforever-without-yielding-substackcode--gt-undefined)
   - [Counters](#counters)
-    - [`(tick # from init)` -> Number](#tick--from-init---number)
-    - [`(frame # from init)` -> Number](#frame--from-init---number)
-    - [`(tick # from @blueFlag)` -> Number](#tick--from-blueflag---number)
-    - [`(frame # from @blueFlag)` -> Number](#frame--from-blueflag---number)
-    - [`(tick # this frame)` -> Number](#tick--this-frame---number)
+    - [`(tick # from init)` -> Number](#codetick--from-initcode--gt-number)
+    - [`(frame # from init)` -> Number](#codeframe--from-initcode--gt-number)
+    - [`(tick # from @blueFlag)` -> Number](#codetick--from-blueflagcode--gt-number)
+    - [`(frame # from @blueFlag)` -> Number](#codeframe--from-blueflagcode--gt-number)
+    - [`(tick # this frame)` -> Number](#codetick--this-framecode--gt-number)
   - [Runtime Phase](#runtime-phase)
-    - [`<this is a predicate step?>` -> Boolean](#this-is-a-predicate-step---boolean)
-    - [`(runtime phase [STATUSFORMAT v])` -> Number | String](#runtime-phase-statusformat-v---number--string)
+    - [`<this is a predicate step?>` -> Boolean](#codeltthis-is-a-predicate-stepgtcode--gt-boolean)
+    - [`(runtime phase [STATUSFORMAT v])` -> Number | String](#coderuntime-phase-statusformat-vcode--gt-number--string)
   - [Warp Mode](#warp-mode)
-    - [`<warp mode>` -> Boolean](#warp-mode---boolean)
-    - [`[SETBOOLEAN v] warp mode for {SUBSTACK}` -> Undefined](#setboolean-v-warp-mode-for-substack---undefined)
-  - [Graphics Updated](#graphics-updated)
-    - [`<graphics updated>` -> Boolean](#graphics-updated---boolean)
-    - [`set graphics updated to <VALUE>` -> Undefined](#set-graphics-updated-to-value---undefined)
-  - [Timers](#timers)
-    - [`(target frame time)` -> Number](#target-frame-time---number)
-    - [`(last measured frame time)` -> Number](#last-measured-frame-time---number)
-    - [`(target work time)` -> Number](#target-work-time---number)
-    - [`(last measured work time)` -> Number](#last-measured-work-time---number)
-    - [`(work timer)` -> Number](#work-timer---number)
-    - [`set work timer to [TIME]` -> Undefined](#set-work-timer-to-time---undefined)
+    - [`<warp mode>` -> Boolean](#codeltwarp-modegtcode--gt-boolean)
+    - [`[SETBOOLEAN v] warp mode for {SUBSTACK}` -> Undefined](#codesetboolean-v-warp-mode-for-substackcode--gt-undefined)
+  - [Graphics Updated](#codetarget-work-timecode--gt-number)
+    - [`<graphics updated>` -> Boolean](#codetarget-work-timecode--gt-number---boolean)
+    - [`set graphics updated to <VALUE>` -> Undefined](#codelast-measured-frame-timecode--gt-number)
+  - [Timers](#codetarget-work-timecode--gt-number)
+    - [`(target frame time)` -> Number](#codelast-measured-work-timecode--gt-number)
+    - [`(last measured frame time)` -> Number](#codework-timercode--gt-number)
+    - [`(target work time)` -> Number](#codeset-work-timer-to-timecode--gt-undefined)
+    - [`(last measured work time)` -> Number](#graphics-updated)
+    - [`(work timer)` -> Number](#codeltgraphics-updatedgtcode--gt-boolean)
+    - [`set work timer to [TIME]` -> Undefined](#codeset-graphics-updated-to-ltvaluegtcode--gt-undefined)
 - [Menus](#menus)
     - [Get Index](#get-index)
     - [Insert Index](#insert-index)
@@ -118,20 +116,20 @@ Returns the current thread.
   
   Reads the `thread` global in the compiled context.
 
-  **Note:** This used to read `sequencer.activeThread`, but this is `null` during [predicate steps](#this-is-a-predicate-step---boolean), so it was changed.
+  **Note:** This used to read `sequencer.activeThread`, but this is `null` during [predicate steps](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), so it was changed.
 </details>
 
 ### `(active index)` -> Number
 <img src="assets/blocks/active_index.png">
 
-Returns the index of the [current thread](#active-thread---thread) in the [threads array](#threads---arraythread), or the last index of the current thread if the current thread is [orphaned](#thread-is-orphaned---boolean).
+Returns the index of the [current thread](#codeactive-threadcode--gt-thread) in the [threads array](#codethreadscode--gt-arraythread), or the last index of the current thread if the current thread is [orphaned](#codeltthread-is-orphanedgtcode--gt-boolean).
 
-If both this is a [predicate step](#this-is-a-predicate-step---boolean) and the current thread is orphaned, returns an empty string.
+If both this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean) and the current thread is orphaned, returns an empty string.
 
 <details>
   <summary>Internal behavior</summary>
   
-  Reads `sequencer.activeThreadIndex` _([I added that!↗](https://github.com/PenguinMod/PenguinMod-Vm/pull/173) :D)_, or if this is a [predicate step](#this-is-a-predicate-step---boolean), finds the index of the `thread` compiled global in `runtime.threads`. If the `thread` compiled global is not in `runtime.threads`, returns an empty string.
+  Reads `sequencer.activeThreadIndex` _([I added that!↗](https://github.com/PenguinMod/PenguinMod-Vm/pull/173) :D)_, or if this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), finds the index of the `thread` compiled global in `runtime.threads`. If the `thread` compiled global is not in `runtime.threads`, returns an empty string.
 </details>
 
 ### `(null thread)` -> Thread
@@ -146,7 +144,7 @@ _Menus: `INDEX` uses [Get Index](#get-index)_
 
 <img src="assets/blocks/thread_at_start.png">
 
-Returns the thread that is at `INDEX` in the [threads array](#threads---arraythread).
+Returns the thread that is at `INDEX` in the [threads array](#codethreadscode--gt-arraythread).
 
 <details>
   <summary>Internal behavior</summary>
@@ -163,7 +161,7 @@ _Menus: `TARGET` uses [Target](#target), `INDEX` uses [Insert Index](#insert-ind
 
 <img src="assets/blocks/new_thread_in_this_target_inserted_after_end.png">
 
-Creates a new thread that will execute in `TARGET`; then, inserts it into the [threads array](#threads---arraythread) at `INDEX`.
+Creates a new thread that will execute in `TARGET`; then, inserts it into the [threads array](#codethreadscode--gt-arraythread) at `INDEX`.
 
 {% capture content %}
 Local ("For this sprite only") variables have noteworthy behavior when used inside `SUBSTACK` where `TARGET` is not the current target:
@@ -175,9 +173,9 @@ Local ("For this sprite only") variables have noteworthy behavior when used insi
 <details>
   <summary>Internal behavior</summary>
   
-  Uses `runtime._pushThread` to create a new thread at the end of the [threads array](#threads---arraythread) containing the contents of `SUBSTACK`. Next, moves it to `INDEX`. Finally, updates `sequencer.activeThreadIndex` if the active thread was moved.
+  Uses `runtime._pushThread` to create a new thread at the end of the [threads array](#codethreadscode--gt-arraythread) containing the contents of `SUBSTACK`. Next, moves it to `INDEX`. Finally, updates `sequencer.activeThreadIndex` if the active thread was moved.
 
-  If this is a [predicate step](#this-is-a-predicate-step---boolean), `sequencer.activeThreadIndex` is actually left unchanged, as we are not currently in the [execution phase](#runtime-phase-statusformat-v---number--string), so it is `null`.
+  If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), `sequencer.activeThreadIndex` is actually left unchanged, as we are not currently in the [execution phase](#coderuntime-phase-statusformat-vcode--gt-number--string), so it is `null`.
 
   The new thread is created by passing the ID of the first block in `SUBSTACK` to `runtime._pushThread`, rather than by starting some precompiled chunk. This means that **`SUBSTACK` is not compiled until the "new thread" block is run**.
 </details>
@@ -187,7 +185,7 @@ _Menus: `TARGET` uses [Target](#target), `INDEX` uses [Insert Index](#insert-ind
 
 <img src="assets/blocks/new_thread_in_this_target_inserted_after_end_2.png">
 
-Same as [`new thread in (TARGET v) inserted (INDEX v) {SUBSTACK}`](#new-thread-in-target-v-inserted-index-v-substack---undefined), except returns the thread that was created (or null).
+Same as [`new thread in (TARGET v) inserted (INDEX v) {SUBSTACK}`](#codenew-thread-in-target-v-inserted-index-v-substackcode--gt-undefined), except returns the thread that was created (or null).
 
 Will return the null thread if there are no blocks in `SUBSTACK` or if `TARGET` is invalid.
 
@@ -220,7 +218,7 @@ Returns a unique identifier for `THREAD`. This ID is generated by the extension 
 ### `(index of [THREAD])` -> Number
 <img src="assets/blocks/index_of.png">
 
-Returns the index of `THREAD` in the [list of threads](#threads---arraythread).
+Returns the index of `THREAD` in the [list of threads](#codethreadscode--gt-arraythread).
 
 <details>
   <summary>Internal behavior</summary>
@@ -242,7 +240,7 @@ Returns the current status code of `THREAD`, formatted as specified by `STATUSFO
 | 2        | Yielded              | `STATUS_YIELD`        | Only used when the compiler is disabled; disabling the compiler is a deprecated feature.                                                            |
 | 3        | Waiting for frame    | `STATUS_YIELD_TICK`   | The thread is waiting for the next frame and will be skipped. When a thread with this status is about to be considered (potentially stepped), if it is the first tick of the frame, its status is set to `STATUS_RUNNING`. This stops the thread from being skipped and allows it to step. |
 | 4        | Completed            | `STATUS_DONE`         | The thread is "dead", i.e. it will never run code again.[^1]                                                                                        |
-| 5        | Paused               | `STATUS_PAUSED`       | The thread is paused either from the [`pause [THREAD]`](#pause-thread---undefined) block, the <img alt="pause" style="height: 1em;" src="https://raw.githubusercontent.com/PenguinMod/PenguinMod-Home/refs/heads/main/static/stage_controls/gradient/pause.svg"> button, or another source, and will be skipped. |
+| 5        | Paused               | `STATUS_PAUSED`       | The thread is paused either from the [`pause [THREAD]`](#codepause-threadcode--gt-undefined) block, the <img alt="pause" style="height: 1em;" src="https://raw.githubusercontent.com/PenguinMod/PenguinMod-Home/refs/heads/main/static/stage_controls/gradient/pause.svg"> button, or another source, and will be skipped. |
 
 <details>
   <summary>Internal behavior</summary>
@@ -255,12 +253,12 @@ _Menus: `STATUSFORMAT` uses [Status Format](#status-format)_
 
 <img src="assets/blocks/unpaused_status_%23_of.png">
 
-Same as [`(status [STATUSFORMAT v] of [THREAD])`](#status-statusformat-v-of-thread---number--string), except if `THREAD` is paused, returns the status that the thread had _before_ it was paused.
+Same as [`(status [STATUSFORMAT v] of [THREAD])`](#codestatus-statusformat-v-of-threadcode--gt-number--string), except if `THREAD` is paused, returns the status that the thread had _before_ it was paused.
 
 <details>
   <summary>Internal behavior</summary>
   
-  Reads the `status` key from the raw thread object, or if it is [5 (paused)](#status-statusformat-v-of-thread---number--string), instead reads the `originalStatus` key.
+  Reads the `status` key from the raw thread object, or if it is [5 (paused)](#codestatus-statusformat-v-of-threadcode--gt-number--string), instead reads the `originalStatus` key.
 </details>
 
 ### `(info text of [THREAD])` -> String
@@ -295,7 +293,7 @@ The null thread cannot store thread variables.
 ### `set [VARIABLE] in [THREAD] to [VALUE]` -> Undefined
 <img src="assets/blocks/set_foo_in_to_bar.png">
 
-Sets the [thread variable](#get-variable-in-thread---any) named `VARIABLE` in `THREAD` to `VALUE`.
+Sets the [thread variable](#codeget-variable-in-threadcode--gt-any) named `VARIABLE` in `THREAD` to `VALUE`.
 
 <details>
   <summary>Internal behavior</summary>
@@ -306,7 +304,7 @@ Sets the [thread variable](#get-variable-in-thread---any) named `VARIABLE` in `T
 ### `(variables in [THREAD])` -> Array\[String\]
 <img src="assets/blocks/variables_in.png">
 
-Returns an array containing the name of every [thread variable](#get-variable-in-thread---any) stored in `THREAD`.
+Returns an array containing the name of every [thread variable](#codeget-variable-in-threadcode--gt-any) stored in `THREAD`.
 
 <details>
   <summary>Internal behavior</summary>
@@ -317,7 +315,7 @@ Returns an array containing the name of every [thread variable](#get-variable-in
 ### `delete [VARIABLE] in [THREAD]` -> Undefined
 <img src="assets/blocks/delete_foo_in.png">
 
-Deletes the [thread variable](#get-variable-in-thread---any) named `VARIABLE` from `THREAD`.
+Deletes the [thread variable](#codeget-variable-in-threadcode--gt-any) named `VARIABLE` from `THREAD`.
 
 <details>
   <summary>Internal behavior</summary>
@@ -357,19 +355,19 @@ Returns `true` if `THREAD` is the null thread.
 
 Returns `true` if `THREAD` is alive, i.e. it is not finished.
 
-If this is a [predicate step](#this-is-a-predicate-step---boolean), will return `false` if `THREAD` is the [current thread](#active-thread---thread) and is [orphaned](#thread-is-orphaned---boolean).[^9]
+If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), will return `false` if `THREAD` is the [current thread](#codeactive-threadcode--gt-thread) and is [orphaned](#codeltthread-is-orphanedgtcode--gt-boolean).[^9]
 
 <details>
   <summary>Internal behavior</summary>
   
   Returns `true` if either:
   - All of:
-    - The raw thread is in the `runtime.threads` array (therefore it died this tick if its status is [4](#status-statusformat-v-of-thread---number--string)).
-    - The raw thread's status is not [4 (completed)](#status-statusformat-v-of-thread---number--string).
+    - The raw thread is in the `runtime.threads` array (therefore it died this tick if its status is [4](#codestatus-statusformat-v-of-threadcode--gt-number--string)).
+    - The raw thread's status is not [4 (completed)](#codestatus-statusformat-v-of-threadcode--gt-number--string).
   - All of:
     - The thread is the current thread.
-    - This is not a [predicate step](#this-is-a-predicate-step---boolean).[^9]
-    - The thread is [orphaned](#thread-is-orphaned---boolean).
+    - This is not a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean).[^9]
+    - The thread is [orphaned](#codeltthread-is-orphanedgtcode--gt-boolean).
 </details>
 
 ### `<[THREAD] exited naturally?>` -> Boolean
@@ -377,20 +375,20 @@ If this is a [predicate step](#this-is-a-predicate-step---boolean), will return 
 
 Returns `true` if `THREAD` is dead, but was not killed, i.e. it exited of its own accord.[^2]
 
-If this is a [predicate step](#this-is-a-predicate-step---boolean), may not return `false` if `THREAD` is the [current thread](#active-thread---thread) and is [orphaned](#thread-is-orphaned---boolean).[^9]
+If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), may not return `false` if `THREAD` is the [current thread](#codeactive-threadcode--gt-thread) and is [orphaned](#codeltthread-is-orphanedgtcode--gt-boolean).[^9]
 
 <details>
   <summary>Internal behavior</summary>
   
   Returns `true` if either:
   - All of:
-    - The raw thread is [orphaned](#thread-is-orphaned---boolean) (not in the `runtime.threads` array) (therefore it is dead unless it is the [current thread](#active-thread---thread)).
-    - The thread is not the current thread, or this is a [predicate step](#this-is-a-predicate-step---boolean).[^9]
+    - The raw thread is [orphaned](#codeltthread-is-orphanedgtcode--gt-boolean) (not in the `runtime.threads` array) (therefore it is dead unless it is the [current thread](#codeactive-threadcode--gt-thread)).
+    - The thread is not the current thread, or this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean).[^9]
     - The raw thread's `isKilled` key is `false`.
-    - The thread's status is [4 (completed)](#status-statusformat-v-of-thread---number--string). This catches limbo[^1] cases in which killed threads have `isKilled` set to `false` and `status` unchanged.
+    - The thread's status is [4 (completed)](#codestatus-statusformat-v-of-threadcode--gt-number--string). This catches limbo[^1] cases in which killed threads have `isKilled` set to `false` and `status` unchanged.
   - All of:
-    - The raw thread is in the `runtime.threads` array (therefore it died this tick if its status is [4](#status-statusformat-v-of-thread---number--string)).
-    - The thread's status is [4 (completed)](#status-statusformat-v-of-thread---number--string).
+    - The raw thread is in the `runtime.threads` array (therefore it died this tick if its status is [4](#codestatus-statusformat-v-of-threadcode--gt-number--string)).
+    - The thread's status is [4 (completed)](#codestatus-statusformat-v-of-threadcode--gt-number--string).
     - The raw thread's `isKilled` key is `false`.
 </details>
 
@@ -399,30 +397,30 @@ If this is a [predicate step](#this-is-a-predicate-step---boolean), may not retu
 
 Returns `true` if `THREAD` exited due to an external cause.[^2]
 
-If this is a [predicate step](#this-is-a-predicate-step---boolean), may not return `false` if `THREAD` is the [current thread](#active-thread---thread) and is [orphaned](#thread-is-orphaned---boolean).[^9]
+If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), may not return `false` if `THREAD` is the [current thread](#codeactive-threadcode--gt-thread) and is [orphaned](#codeltthread-is-orphanedgtcode--gt-boolean).[^9]
 
 <details>
   <summary>Internal behavior</summary>
   
   Returns `true` if either:
   - All of:
-    - The raw thread is [orphaned](#thread-is-orphaned---boolean) (not in the `runtime.threads` array) (therefore it is dead unless it is the [current thread](#active-thread---thread)).
-    - The thread is not the current thread, or this is a [predicate step](#this-is-a-predicate-step---boolean).[^9]
+    - The raw thread is [orphaned](#codeltthread-is-orphanedgtcode--gt-boolean) (not in the `runtime.threads` array) (therefore it is dead unless it is the [current thread](#codeactive-threadcode--gt-thread)).
+    - The thread is not the current thread, or this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean).[^9]
     - Either:
       - The raw thread's `isKilled` key is `true`.
       - The raw thead's `status` key is not 4 (completed). This catches limbo[^1] cases in which killed threads have `isKilled` set to `false` and `status` unchanged.
   - All of:
-    - The raw thread is in the `runtime.threads` array (therefore it died this tick if its status is [4](#status-statusformat-v-of-thread---number--string)).
-    - The thread's status is [4 (completed)](#status-statusformat-v-of-thread---number--string).
+    - The raw thread is in the `runtime.threads` array (therefore it died this tick if its status is [4](#codestatus-statusformat-v-of-threadcode--gt-number--string)).
+    - The thread's status is [4 (completed)](#codestatus-statusformat-v-of-threadcode--gt-number--string).
     - The raw thread's `isKilled` key is `true`.
 </details>
 
 ### `<[THREAD] was paused manually?>` -> Boolean
 <img src="assets/blocks/was_paused_manually.png">
 
-Returns `true` if `THREAD` was paused by the [`pause [THREAD]`](#pause-thread---undefined) block.
+Returns `true` if `THREAD` was paused by the [`pause [THREAD]`](#codepause-threadcode--gt-undefined) block.
 
-To check if a thread is paused in general, use the [`(status [STATUSFORMAT v] of [THREAD])`](#status-statusformat-v-of-thread---number--string) block and check for status 5 (paused).
+To check if a thread is paused in general, use the [`(status [STATUSFORMAT v] of [THREAD])`](#codestatus-statusformat-v-of-threadcode--gt-number--string) block and check for status 5 (paused).
 
 <details>
   <summary>Internal behavior</summary>
@@ -435,29 +433,29 @@ To check if a thread is paused in general, use the [`(status [STATUSFORMAT v] of
 
 Returns `true` if `THREAD` is in limbo.[^11]
 
-In many cases when a thread is stopped, it will enter limbo. Limbo is when a dead thread's [status](#status-statusformat-v-of-thread---number--string) does not get set to 4 (completed). Some known cases where a thread enters limbo:
+In many cases when a thread is stopped, it will enter limbo. Limbo is when a dead thread's [status](#codestatus-statusformat-v-of-threadcode--gt-number--string) does not get set to 4 (completed). Some known cases where a thread enters limbo:
   - When <img alt="blue flag" style="height: 1em;" src="https://raw.githubusercontent.com/PenguinMod/PenguinMod-Home/refs/heads/main/static/stage_controls/gradient/flag.svg"> is clicked, all previously running threads will enter limbo.
   - When <img alt="stop sign" style="height: 1em;" src="https://raw.githubusercontent.com/PenguinMod/PenguinMod-Home/refs/heads/main/static/stage_controls/gradient/stop.svg"> is clicked, all previously running threads will enter limbo.
   - When a stack restarts because its hat is triggered again, the old thread enters limbo.
-  - When [`set threads to [THREADS] and yield to [ACTIVETHREAD]`](#set-threads-to-threads-and-yield-to-activethread---undefined) or [`set threads to [THREADS] and yield to thread at (ACTIVEINDEX v)`](#set-threads-to-threads-and-yield-to-thread-at-activeindex-v---undefined) is used to kill a thread, that thread enters limbo.
+  - When [`set threads to [THREADS] and yield to [ACTIVETHREAD]`](#codeset-threads-to-threads-and-yield-to-activethreadcode--gt-undefined) or [`set threads to [THREADS] and yield to thread at (ACTIVEINDEX v)`](#codeset-threads-to-threads-and-yield-to-thread-at-activeindex-vcode--gt-undefined) is used to kill a thread, that thread enters limbo.
 
-If this is a [predicate step](#this-is-a-predicate-step---boolean), will return `true` if `THREAD` is the [current thread](#active-thread---thread) and is [orphaned](#thread-is-orphaned---boolean).[^9]
+If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), will return `true` if `THREAD` is the [current thread](#codeactive-threadcode--gt-thread) and is [orphaned](#codeltthread-is-orphanedgtcode--gt-boolean).[^9]
 
 <details>
   <summary>Internal behavior</summary>
   
   Returns `true` if all of:
   - The raw thread is not in the `runtime.threads` array (therefore it is dead unless it is the current thread).
-  - The thread is not the current thread, or this is a [predicate step](#this-is-a-predicate-step---boolean).[^9]
-  - The thread's status is not [4 (completed)](#status-statusformat-v-of-thread---number--string).
+  - The thread is not the current thread, or this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean).[^9]
+  - The thread's status is not [4 (completed)](#codestatus-statusformat-v-of-threadcode--gt-number--string).
 </details>
 
 ### `<[THREAD] is orphaned?>` -> Boolean
 <img src="assets/blocks/is_orphaned.png">
 
-Returns `true` if `THREAD` is orphaned, i.e. it is not in the [threads array](#threads---arraythread).
+Returns `true` if `THREAD` is orphaned, i.e. it is not in the [threads array](#codethreadscode--gt-arraythread).
 
-Once a thread is orphaned, it will never be stepped again. However, a thread may become orphaned mid-step, in which case it will still complete that step. Because of this, if, for example, the [current thread](#active-thread---thread) is orphaned because its block stack is restarted by the hat block, during that step `<(active thread) is orphaned?>` will return `true`.
+Once a thread is orphaned, it will never be stepped again. However, a thread may become orphaned mid-step, in which case it will still complete that step. Because of this, if, for example, the [current thread](#codeactive-threadcode--gt-thread) is orphaned because its block stack is restarted by the hat block, during that step `<(active thread) is orphaned?>` will return `true`.
 
 <details>
   <summary>Internal behavior</summary>
@@ -481,13 +479,13 @@ Returns `true` if `THREAD` was started by the engine to check the value of a rep
 
 Returns `true` if `THREAD` is an "executable hat thread".
 
-An executable hat thread is a thread that was started before the [execution phase](#runtime-phase-statusformat-v---number--string) (i.e. before the first tick of the frame) in order to prematurely evaluate the predicate (condition) of a hat block.
+An executable hat thread is a thread that was started before the [execution phase](#coderuntime-phase-statusformat-vcode--gt-number--string) (i.e. before the first tick of the frame) in order to prematurely evaluate the predicate (condition) of a hat block.
 
-Executable hat threads are created for all scripts whose hat blocks have the `Scratch.BlockType.HAT` block type (not the `Scratch.BlockType.EVENT` one) every frame before the execution phase (except if the extension standard is disobeyed as explained below). These threads are always moved to the end of the [threads array](#threads---arraythread) upon creation.
+Executable hat threads are created for all scripts whose hat blocks have the `Scratch.BlockType.HAT` block type (not the `Scratch.BlockType.EVENT` one) every frame before the execution phase (except if the extension standard is disobeyed as explained below). These threads are always moved to the end of the [threads array](#codethreadscode--gt-arraythread) upon creation.
 
-Immediately after creation, all executable hat threads trigger a [predicate step](#this-is-a-predicate-step---boolean) on themselves.
+Immediately after creation, all executable hat threads trigger a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean) on themselves.
 
-For edge-activated hat blocks, their executable hat threads are created very early in the ["frame start" phase](#runtime-phase-statusformat-v---number--string), whereas non-edge-activated hat blocks have their threads created in the ["before execution" phase](#runtime-phase-statusformat-v---number--string). However, non-edge-activated hat blocks in rare cases may never have their threads created at all, as [it is only a standard and not actually inbuilt↗](https://docs.turbowarp.org/development/extensions/hats#predicate-based-hat-blocks) (in the linked documentation you can see the use of `startHats` on every `BEFORE_EXECUTE` event which creates the executable hat thread during the "before execution" phase every frame).
+For edge-activated hat blocks, their executable hat threads are created very early in the ["frame start" phase](#coderuntime-phase-statusformat-vcode--gt-number--string), whereas non-edge-activated hat blocks have their threads created in the ["before execution" phase](#coderuntime-phase-statusformat-vcode--gt-number--string). However, non-edge-activated hat blocks in rare cases may never have their threads created at all, as [it is only a standard and not actually inbuilt↗](https://docs.turbowarp.org/development/extensions/hats#predicate-based-hat-blocks) (in the linked documentation you can see the use of `startHats` on every `BEFORE_EXECUTE` event which creates the executable hat thread during the "before execution" phase every frame).
 
 <details>
   <summary>Internal behavior</summary>
@@ -513,7 +511,7 @@ Returns `true` if `THREAD` was started by manually clicking a stack in the code 
 ### `kill [THREAD]` -> Undefined
 <img src="assets/blocks/kill.png">
 
-Kills `THREAD` if it is [alive](#thread-is-alive---thread) and not [orphaned](#thread-is-orphaned---boolean). Then, yields if `THREAD` was the [current thread](#active-thread---thread).
+Kills `THREAD` if it is [alive](#thread-is-alive---thread) and not [orphaned](#codeltthread-is-orphanedgtcode--gt-boolean). Then, yields if `THREAD` was the [current thread](#codeactive-threadcode--gt-thread).
 
 <details>
   <summary>Internal behavior</summary>
@@ -524,7 +522,7 @@ Kills `THREAD` if it is [alive](#thread-is-alive---thread) and not [orphaned](#t
 ### `pause [THREAD]` -> Undefined
 <img src="assets/blocks/pause.png">
 
-Pauses `THREAD` if it was not already [paused manually](#thread-was-paused-manually---boolean). Then, yields if `THREAD` was the [current thread](#active-thread---thread).
+Pauses `THREAD` if it was not already [paused manually](#codeltthread-was-paused-manuallygtcode--gt-boolean). Then, yields if `THREAD` was the [current thread](#codeactive-threadcode--gt-thread).
 
 ### `unpause [THREAD]` -> Undefined
 <img src="assets/blocks/unpause.png">
@@ -548,9 +546,9 @@ Yields `TIMES` times.
 ### `yield to previous thread` -> Undefined
 <img src="assets/blocks/yield_to_previous_thread.png">
 
-Yields and makes the previous thread active. If there is no previous thread (the first thread is active), yields and makes the [current thread](#active-thread---thread) active (effectively cancelling the yield in most cases).
+Yields and makes the previous thread active. If there is no previous thread (the first thread is active), yields and makes the [current thread](#codeactive-threadcode--gt-thread) active (effectively cancelling the yield in most cases).
 
-If this is a [predicate step](#this-is-a-predicate-step---boolean), instead does nothing.
+If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), instead does nothing.
 
 <details>
   <summary>Internal behavior</summary>
@@ -563,14 +561,14 @@ If this is a [predicate step](#this-is-a-predicate-step---boolean), instead does
 
 Yields and makes `ACTIVETHREAD` active.
 
-If `ACTIVETHREAD` is null or not in the [threads array](#threads---arraythread), instead yields to the [end of the tick](#yield-to-end-of-tick---undefined).
+If `ACTIVETHREAD` is null or not in the [threads array](#codethreadscode--gt-arraythread), instead yields to the [end of the tick](#codeyield-to-end-of-tickcode--gt-undefined).
 
-If this is a [predicate step](#this-is-a-predicate-step---boolean), instead [yields normally](#yield---undefined).
+If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), instead [yields normally](#codeyieldcode--gt-undefined).
 
 <details>
   <summary>Internal behavior</summary>
   
-  If `ACTIVETHREAD` is valid, sets `sequencer.activeThreadIndex` to 1 less than the desired index before yielding. The decrement is because this value is always incremented by the engine after every yield. Otherwise, executes the behavior of [`yield to end of tick`](#yield-to-end-of-tick---undefined).
+  If `ACTIVETHREAD` is valid, sets `sequencer.activeThreadIndex` to 1 less than the desired index before yielding. The decrement is because this value is always incremented by the engine after every yield. Otherwise, executes the behavior of [`yield to end of tick`](#codeyield-to-end-of-tickcode--gt-undefined).
 </details>
 
 ### `yield to thread at (INDEX v)` -> Undefined
@@ -582,7 +580,7 @@ Yields and makes the thread at `INDEX` active.
 
 If `INDEX` is larger than the normally accepted range, will immediately end the tick. If `INDEX` is too small, will yield to the first thread.
 
-If this is a [predicate step](#this-is-a-predicate-step---boolean), instead [yields normally](#yield---undefined).
+If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), instead [yields normally](#codeyieldcode--gt-undefined).
 
 <details>
   <summary>Internal behavior</summary>
@@ -595,7 +593,7 @@ If this is a [predicate step](#this-is-a-predicate-step---boolean), instead [yie
 
 Yields and immediately ends the tick, skipping all threads that would normally step after this one.
 
-If this is a [predicate step](#this-is-a-predicate-step---boolean), instead [yields normally](#yield---undefined).
+If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), instead [yields normally](#codeyieldcode--gt-undefined).
 
 <details>
   <summary>Internal behavior</summary>
@@ -616,25 +614,25 @@ Broadcasts `MESSAGE` and then moves all new threads that were created to `INDEX`
 
 Any preexisting threads with a `when I receive [MESSAGE v]` hat block will be restarted and moved to `INDEX` as well.
 
-If this is a [predicate step](#this-is-a-predicate-step---boolean), instead does nothing.
+If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), instead does nothing.
 
 ### `broadcast [MESSAGE v] to (INDEX v) and wait` -> Undefined
 _Menus: `INDEX` uses [Insert Index](#insert-index)_
 
 <img src="assets/blocks/broadcast_message1_to_after_end_and_wait.png">
 
-Executes the behavior of [`broadcast [MESSAGE v] to (INDEX v)`](#broadcast-message-v-to-index-v---undefined), and then yields until all threads that were created are not [alive](#thread-is-alive---boolean).
+Executes the behavior of [`broadcast [MESSAGE v] to (INDEX v)`](#codebroadcast-message-v-to-index-vcode--gt-undefined), and then yields until all threads that were created are not [alive](#codeltthread-is-alivegtcode--gt-boolean).
 
 ### `step [MESSAGE v] immediately and return` -> Undefined
 <img src="assets/blocks/step_message1_immediately_and_return.png">
 
-Broadcasts `MESSAGE`, moves all new threads to immediately before the [active thread](#active-thread---thread) in the [threads array](#threads---arraythread), yields, and makes the first new thread active.
+Broadcasts `MESSAGE`, moves all new threads to immediately before the [active thread](#codeactive-threadcode--gt-thread) in the [threads array](#codethreadscode--gt-arraythread), yields, and makes the first new thread active.
 
 Any preexisting threads with a `when I receive [MESSAGE v]` hat block will be restarted and moved to before the active thread as well.
 
 This has the effect of immediately stepping all new threads once after broadcast, and then stepping the current thread again (as if no yield happened).
 
-If this is a [predicate step](#this-is-a-predicate-step---boolean), instead does nothing.
+If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), instead does nothing.
 
 ### `(last broadcast threads)` -> Array\[Thread\]
 <img src="assets/blocks/last_broadcast_threads.png">
@@ -665,9 +663,9 @@ Returns the first thread that was started by the most recent broadcast (or the n
 ### `(threads)` -> Array\[Thread\]
 <img src="assets/blocks/threads.png">
 
-Returns most[^8] threads that are currently [alive](#thread-is-alive---boolean) and most[^5] threads that exited this tick in their execution order.
+Returns most[^8] threads that are currently [alive](#codeltthread-is-alivegtcode--gt-boolean) and most[^5] threads that exited this tick in their execution order.
 
-Threads that are not in this array are called [orphaned](#thread-is-orphaned---boolean); there is some documentation about the behavior of such threads.
+Threads that are not in this array are called [orphaned](#codeltthread-is-orphanedgtcode--gt-boolean); there is some documentation about the behavior of such threads.
 
 <details>
   <summary>Internal behavior</summary>
@@ -691,20 +689,20 @@ Returns all threads in `TARGET` that are currently alive and most[^5] threads th
 ### `set threads to [THREADS] and yield to [ACTIVETHREAD]` -> Undefined
 <img src="assets/blocks/set_threads_to_and_yield_to.png">
 
-Sets the [threads array](#threads---arraythread) to `THREADS` and then yields to `ACTIVETHREAD`.
+Sets the [threads array](#codethreadscode--gt-arraythread) to `THREADS` and then yields to `ACTIVETHREAD`.
 
-`THREADS` should be an array of unique non-null threads that are already in the [threads array](#threads---arraythread). Any duplicate threads, null threads, or threads not already in the threads array will be omitted.
+`THREADS` should be an array of unique non-null threads that are already in the [threads array](#codethreadscode--gt-arraythread). Any duplicate threads, null threads, or threads not already in the threads array will be omitted.
 
-If a thread previously in the [threads array](#threads---arraythread) is not included in `THREADS`, it will be killed and put into limbo[^1].
+If a thread previously in the [threads array](#codethreadscode--gt-arraythread) is not included in `THREADS`, it will be killed and put into limbo[^1].
 
-If `ACTIVETHREAD` is null or not in the [threads array](#threads---arraythread) after the operation, instead yields to the [end of the tick](#yield-to-end-of-tick---undefined).
+If `ACTIVETHREAD` is null or not in the [threads array](#codethreadscode--gt-arraythread) after the operation, instead yields to the [end of the tick](#codeyield-to-end-of-tickcode--gt-undefined).
 
-If this is a [predicate step](#this-is-a-predicate-step---boolean), `ACTIVETHREAD` will be ignored and a [normal yield](#yield---undefined) will be performed instead; this effectively yields to the first thread in most cases, as predicate steps should occur before the start of a frame.
+If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), `ACTIVETHREAD` will be ignored and a [normal yield](#codeyieldcode--gt-undefined) will be performed instead; this effectively yields to the first thread in most cases, as predicate steps should occur before the start of a frame.
 
 <details>
   <summary>Internal behavior</summary>
   
-  Replaces the entire contents of the `runtime.threads` array by mutating it. Then, executes the behavior of [`yield to [ACTIVETHREAD]`](#yield-to-activethread---undefined).
+  Replaces the entire contents of the `runtime.threads` array by mutating it. Then, executes the behavior of [`yield to [ACTIVETHREAD]`](#codeyield-to-activethreadcode--gt-undefined).
 </details>
 
 ### `set threads to [THREADS] and yield to thread at (ACTIVEINDEX v)` -> Undefined
@@ -712,20 +710,20 @@ _Menus: `ACTIVEINDEX` uses [Absolute Insert Index](#insert-index)_
 
 <img src="assets/blocks/set_threads_to_and_yield_to_thread_at_start.png">
 
-Sets the [threads array](#threads---arraythread) to `THREADS` and then yields to the thread at `ACTIVEINDEX`.
+Sets the [threads array](#codethreadscode--gt-arraythread) to `THREADS` and then yields to the thread at `ACTIVEINDEX`.
 
-`THREADS` should be an array of unique non-null threads that are already in the [threads array](#threads---arraythread). Any duplicate threads, null threads, or threads not already in the threads array will be omitted.
+`THREADS` should be an array of unique non-null threads that are already in the [threads array](#codethreadscode--gt-arraythread). Any duplicate threads, null threads, or threads not already in the threads array will be omitted.
 
-If a thread previously in the [threads array](#threads---arraythread) is not included in `THREADS`, it will be killed and put into limbo[^1].
+If a thread previously in the [threads array](#codethreadscode--gt-arraythread) is not included in `THREADS`, it will be killed and put into limbo[^1].
 
 If `ACTIVEINDEX` is larger than the normally accepted range, will immediately end the tick. If `ACTIVEINDEX` is too small, will yield to the first thread.
 
-If this is a [predicate step](#this-is-a-predicate-step---boolean), `ACTIVEINDEX` will be ignored and a [normal yield](#yield---undefined) will be performed instead; this effectively yields to the first thread in most cases, as predicate steps should occur before the start of a frame.
+If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), `ACTIVEINDEX` will be ignored and a [normal yield](#codeyieldcode--gt-undefined) will be performed instead; this effectively yields to the first thread in most cases, as predicate steps should occur before the start of a frame.
 
 <details>
   <summary>Internal behavior</summary>
   
-  Replaces the entire contents of the `runtime.threads` array by mutating it. Then, executes the behavior of [`yield to thread at (INDEX v)`](#yield-to-thread-at-index-v---undefined).
+  Replaces the entire contents of the `runtime.threads` array by mutating it. Then, executes the behavior of [`yield to thread at (INDEX v)`](#codeyield-to-thread-at-index-vcode--gt-undefined).
 </details>
 
 ### `move [THREAD] to (INDEX v)` -> Undefined
@@ -733,7 +731,7 @@ _Menus: `INDEX` uses [Insert Index](#insert-index)_
 
 <img src="assets/blocks/move_to_after_end.png">
 
-Moves `THREAD` to `INDEX` if it is in the [threads array](#threads---arraythread).
+Moves `THREAD` to `INDEX` if it is in the [threads array](#codethreadscode--gt-arraythread).
 
 <details>
   <summary>Internal behavior</summary>
@@ -742,13 +740,13 @@ Moves `THREAD` to `INDEX` if it is in the [threads array](#threads---arraythread
   
   Then, if `sequencer.activeThreadIndex` was equal to the index of `THREAD`, sets it to `INDEX`. Otherwise, if it was greater than or equal to `INDEX`, increments it. This is to ensure that the active thread remains unchanged.
 
-  If this is a [predicate step](#this-is-a-predicate-step---boolean), `sequencer.activeThreadIndex` is actually left unchanged, as we are not currently in the [execution phase](#runtime-phase-statusformat-v---number--string), so it is `null`.
+  If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), `sequencer.activeThreadIndex` is actually left unchanged, as we are not currently in the [execution phase](#coderuntime-phase-statusformat-vcode--gt-number--string), so it is `null`.
 </details>
 
 ### `swap [THREADONE] with [THREADTWO]` -> Undefined
 <img src="assets/blocks/swap_with.png">
 
-Swaps the positions of `THREADONE` and `THREADTWO` if they are distinct threads in the [threads array](#threads---arraythread).
+Swaps the positions of `THREADONE` and `THREADTWO` if they are distinct threads in the [threads array](#codethreadscode--gt-arraythread).
 
 <details>
   <summary>Internal behavior</summary>
@@ -757,7 +755,7 @@ Swaps the positions of `THREADONE` and `THREADTWO` if they are distinct threads 
 
   Then, if `sequencer.activeThreadIndex` was equal to the index of `THREADONE` or `THREADTWO`, sets it to the index of the opposite thread. This is to ensure that the active thread remains unchanged.
 
-  If this is a [predicate step](#this-is-a-predicate-step---boolean), `sequencer.activeThreadIndex` is actually left unchanged, as we are not currently in the [execution phase](#runtime-phase-statusformat-v---number--string), so it is `null`.
+  If this is a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), `sequencer.activeThreadIndex` is actually left unchanged, as we are not currently in the [execution phase](#coderuntime-phase-statusformat-vcode--gt-number--string), so it is `null`.
 </details>
 
 
@@ -852,18 +850,18 @@ Returns the state of a counter that increments every frame and starts at 1 on th
 
 Returns `true` if the current step is a "predicate step".
 
-A predicate step is a step performed before the [execution phase](#runtime-phase-statusformat-v---number--string) of a frame, meant to execute only the hat block of the stack to check its predicate (true/false condition). This is always the first step of an [executable hat thread](#thread-is-an-executable-hat-thread---boolean), and is performed immediately after the creation of that thread.
+A predicate step is a step performed before the [execution phase](#coderuntime-phase-statusformat-vcode--gt-number--string) of a frame, meant to execute only the hat block of the stack to check its predicate (true/false condition). This is always the first step of an [executable hat thread](#codeltthread-is-an-executable-hat-threadgtcode--gt-boolean), and is performed immediately after the creation of that thread.
 
 During a predicate step, the hat block (and its inputs) are executed. If the hat's predicate (condition) returns `false`, the thread is immediately completed (and yields). If its predicate returns `true`, the thread only yields, so on its next step it will begin executing the blocks under the hat. This next step will be a normal step during the execution phase later in the frame.
 
-Because predicate steps are performed outside of the execution phase of a frame, most normal sequencer behavior is not present during these. Specifically, the [threads array](#threads---arraythread) and [active index](#active-index---number) are irrelevant here. Instead, predicate steps are always performed before the first tick of a frame, and therefore before any other threads in the threads array step (except other executable hat threads).
+Because predicate steps are performed outside of the execution phase of a frame, most normal sequencer behavior is not present during these. Specifically, the [threads array](#codethreadscode--gt-arraythread) and [active index](#codeactive-indexcode--gt-number) are irrelevant here. Instead, predicate steps are always performed before the first tick of a frame, and therefore before any other threads in the threads array step (except other executable hat threads).
 
 Because the only blocks executed during predicate steps are hat blocks and their inputs, the only time this block will ever realistically return `true` is when it is inside an inline block (or similar) inside of an input of a hat block.
 
 <details>
   <summary>Internal behavior</summary>
 
-  Returns `true` if `runtime.soupThreadsRuntimePhase` is not ["execution"](#runtime-phase-statusformat-v---number--string), as we assume all thread steps not in the execution phase are predicate steps.
+  Returns `true` if `runtime.soupThreadsRuntimePhase` is not ["execution"](#coderuntime-phase-statusformat-vcode--gt-number--string), as we assume all thread steps not in the execution phase are predicate steps.
 </details>
 
 ### `(runtime phase [STATUSFORMAT v])` -> Number | String
@@ -909,7 +907,7 @@ Returns `true` if warp mode is enabled. When warp mode is enabled, **all vanilla
 Some cases where warp mode is enabled:
 - Code inside an `all at once` block
 - Code inside a "Run without screen refresh" custom block
-- Code inside an [`[enable v] warp mode for {SUBSTACK}`](#setboolean-v-warp-mode-for-substack---undefined) block
+- Code inside an [`[enable v] warp mode for {SUBSTACK}`](#codesetboolean-v-warp-mode-for-substackcode--gt-undefined) block
 
 <details>
   <summary>Internal behavior</summary>
@@ -922,7 +920,7 @@ _Menus: `SETBOOLEAN` uses [Set Boolean](#set-boolean)_
 
 <img src="assets/blocks/enable_warp_mode_for.png">
 
-Enables or disables [warp mode](#warp-mode---boolean) for `SUBSTACK`.
+Enables or disables [warp mode](#codeltwarp-modegtcode--gt-boolean) for `SUBSTACK`.
 
 <details>
   <summary>Internal behavior</summary>
@@ -970,7 +968,7 @@ Returns the amount of time in seconds that the sequencer is allotted for executi
 ### `(last measured work time)` -> Number
 <img src="assets/blocks/last_measured_work_time.png">
 
-Returns the duration in seconds of the [execution phase](#runtime-phase-statusformat-v---number--string) (or more precisely, of the "before execution" and execution phases combined) of the previous frame. This includes all time that code is being executed, but not the time that the renderer is redrawing the stage or waiting for the next frame.
+Returns the duration in seconds of the [execution phase](#coderuntime-phase-statusformat-vcode--gt-number--string) (or more precisely, of the "before execution" and execution phases combined) of the previous frame. This includes all time that code is being executed, but not the time that the renderer is redrawing the stage or waiting for the next frame.
 
 <details>
   <summary>Internal behavior</summary>
@@ -981,7 +979,7 @@ Returns the duration in seconds of the [execution phase](#runtime-phase-statusfo
 ### `(work timer)` -> Number
 <img src="assets/blocks/work_timer.png">
 
-Returns the time elapsed for [execution](#runtime-phase-statusformat-v---number--string) so far this frame. Before every tick, if this timer is greater than or equal to [`(target work time)`](#target-work-time---number), no more ticks will execute that frame, and the rest of the frame time is given to the renderer.
+Returns the time elapsed for [execution](#coderuntime-phase-statusformat-vcode--gt-number--string) so far this frame. Before every tick, if this timer is greater than or equal to [`(target work time)`](#codeset-work-timer-to-timecode--gt-undefined), no more ticks will execute that frame, and the rest of the frame time is given to the renderer.
 
 <details>
   <summary>Internal behavior</summary>
@@ -992,7 +990,7 @@ Returns the time elapsed for [execution](#runtime-phase-statusformat-v---number-
 ### `set work timer to [TIME]` -> Undefined
 <img src="assets/blocks/set_work_timer_to_0.png">
 
-Overrides the [work timer](#work-timer---number) by setting it to `TIME` seconds.
+Overrides the [work timer](#codeltgraphics-updatedgtcode--gt-boolean) by setting it to `TIME` seconds.
 
 <details>
   <summary>Internal behavior</summary>
@@ -1022,7 +1020,7 @@ Will always be `false` at the start of the tick, but certain blocks that update 
 
 Sets the "graphics-updated" flag as mentioned [here↗](https://www.rokcoder.com/tips/inner-workings.html).
 
-The behavior and effects of this flag are described under [`<graphics updated>`](#graphics-updated---boolean).
+The behavior and effects of this flag are described under [`<graphics updated>`](#codetarget-work-timecode--gt-number---boolean).
 
 <details>
   <summary>Internal behavior</summary>
@@ -1036,53 +1034,53 @@ The behavior and effects of this flag are described under [`<graphics updated>`]
 
 ### Get Index
 _Used in:_
-- [`(thread at (INDEX v))`](#thread-at-index-v---thread)
-- [`yield to thread at (INDEX v)`](#yield-to-thread-at-index-v---undefined)
+- [`(thread at (INDEX v))`](#codethread-at-index-vcode--gt-thread)
+- [`yield to thread at (INDEX v)`](#codeyield-to-thread-at-index-vcode--gt-undefined)
 
 _Type: **Number Textbox**_
 
-| Item                        | Description                                                                  |
-|-----------------------------|------------------------------------------------------------------------------|
-| start                       | Gets the thread at the start of the [threads array](#threads---arraythread). |
-| end                         | Gets the thread at the end of the threads array.                             |
-| previous index*             | Gets the thread before the active thread in the threads array.               |
-| active index*               | Gets the active thread.                                                      |
-| next index*                 | Gets the thread after the active thread in the threads array.                |
-| (you can put an index here) | _Sets the textbox to `1` when selected._                                     |
+| Item                        | Description                                                                            |
+|-----------------------------|----------------------------------------------------------------------------------------|
+| start                       | Gets the thread at the start of the [threads array](#codethreadscode--gt-arraythread). |
+| end                         | Gets the thread at the end of the threads array.                                       |
+| previous index*             | Gets the thread before the active thread in the threads array.                         |
+| active index*               | Gets the active thread.                                                                |
+| next index*                 | Gets the thread after the active thread in the threads array.                          |
+| (you can put an index here) | _Sets the textbox to `1` when selected._                                               |
 
 *This item will not appear for _absolute get index_ menus.
 
-The value can be overridden by an integer from `0` to the length of the [threads array](#threads---arraythread) (inclusive). For the value `0`, the behavior of `end` is used. Otherwise, the value is interpreted as a 1-based index.
+The value can be overridden by an integer from `0` to the length of the [threads array](#codethreadscode--gt-arraythread) (inclusive). For the value `0`, the behavior of `end` is used. Otherwise, the value is interpreted as a 1-based index.
 
 ### Insert Index
 _Used in:_
-- [`new thread in (TARGET v) inserted (INDEX v) {SUBSTACK}`](#new-thread-in-target-v-inserted-index-v-substack---undefined)
-- [`(new thread in (TARGET v) inserted (INDEX v) {SUBSTACK})`](#new-thread-in-target-v-inserted-index-v-substack---thread)
-- [`broadcast [MESSAGE v] to (INDEX v)`](#broadcast-message-v-to-index-v---undefined)
-- [`broadcast [MESSAGE v] to (INDEX v) and wait`](#broadcast-message-v-to-index-v-and-wait---undefined)
-- [`set threads to [THREADS] and yield to thread at (ACTIVEINDEX v)`](#set-threads-to-threads-and-yield-to-thread-at-activeindex-v---undefined) _(absolute insert index)_
-- [`move [THREAD] to (INDEX v)`](#move-thread-to-index-v---undefined)
+- [`new thread in (TARGET v) inserted (INDEX v) {SUBSTACK}`](#codenew-thread-in-target-v-inserted-index-v-substackcode--gt-undefined)
+- [`(new thread in (TARGET v) inserted (INDEX v) {SUBSTACK})`](#codenew-thread-in-target-v-inserted-index-v-substackcode--gt-thread)
+- [`broadcast [MESSAGE v] to (INDEX v)`](#codebroadcast-message-v-to-index-vcode--gt-undefined)
+- [`broadcast [MESSAGE v] to (INDEX v) and wait`](#codebroadcast-message-v-to-index-v-and-waitcode--gt-undefined)
+- [`set threads to [THREADS] and yield to thread at (ACTIVEINDEX v)`](#codeset-threads-to-threads-and-yield-to-thread-at-activeindex-vcode--gt-undefined) _(absolute insert index)_
+- [`move [THREAD] to (INDEX v)`](#codemove-thread-to-index-vcode--gt-undefined)
 
 _Type: **Number Textbox**_
 
-| Item                        | Description                                                                              |
-|-----------------------------|------------------------------------------------------------------------------------------|
-| before start                | Inserts the thread(s) at the start of the [threads array](#threads---arraythread).       |
-| after end                   | Inserts the thread(s) at the end of the threads array.                                   |
-| before previous*            | Inserts the thread(s) before the _thread before the active thread_ in the threads array. |
-| before active*              | Inserts the thread(s) before the active thread in the threads array.                     |
-| after active*               | Inserts the thread(s) after the active thread in the threads array.                      |
-| (you can put an index here) | _Sets the textbox to `1` when selected._                                                 |
+| Item                        | Description                                                                                  |
+|-----------------------------|----------------------------------------------------------------------------------------------|
+| before start                | Inserts the thread(s) at the start of the [threads array](#codethreadscode--gt-arraythread). |
+| after end                   | Inserts the thread(s) at the end of the threads array.                                       |
+| before previous*            | Inserts the thread(s) before the _thread before the active thread_ in the threads array.     |
+| before active*              | Inserts the thread(s) before the active thread in the threads array.                         |
+| after active*               | Inserts the thread(s) after the active thread in the threads array.                          |
+| (you can put an index here) | _Sets the textbox to `1` when selected._                                                     |
 
 *This item will not appear for _absolute insert index_ menus.
 
-The value can be overridden by an integer from `0` to the length of the [threads array](#threads---arraythread) + 1 (inclusive). For the value `0`, the behavior of `after end` is used. Otherwise, the value is interpreted as a 1-based index; the operation will insert the thread(s) **before the specified index**.
+The value can be overridden by an integer from `0` to the length of the [threads array](#codethreadscode--gt-arraythread) + 1 (inclusive). For the value `0`, the behavior of `after end` is used. Otherwise, the value is interpreted as a 1-based index; the operation will insert the thread(s) **before the specified index**.
 
 ### Target
 _Used in:_
-- [`new thread in (TARGET v) inserted (INDEX v) {SUBSTACK}`](#new-thread-in-target-v-inserted-index-v-substack---undefined)
-- [`(new thread in (TARGET v) inserted (INDEX v) {SUBSTACK})`](#new-thread-in-target-v-inserted-index-v-substack---thread)
-- [`(threads in (TARGET v))`](#threads-in-target-v---arraythread)
+- [`new thread in (TARGET v) inserted (INDEX v) {SUBSTACK}`](#codenew-thread-in-target-v-inserted-index-v-substackcode--gt-undefined)
+- [`(new thread in (TARGET v) inserted (INDEX v) {SUBSTACK})`](#codenew-thread-in-target-v-inserted-index-v-substackcode--gt-thread)
+- [`(threads in (TARGET v))`](#codethreads-in-target-vcode--gt-arraythread)
 
 _Type: **Accepts Reporters**_
 
@@ -1095,9 +1093,9 @@ The value can be overridden by a target or target ID.
 
 ### Status Format
 _Used in:_
-- [`(status [STATUSFORMAT v] of [THREAD])`](#status-statusformat-v-of-thread---number--string)
-- [`(unpaused status [STATUSFORMAT v] of [THREAD])`](#unpaused-status-statusformat-v-of-thread---number--string)
-- [`(runtime phase [STATUSFORMAT v])`](#runtime-phase-statusformat-v---number--string)
+- [`(status [STATUSFORMAT v] of [THREAD])`](#codestatus-statusformat-v-of-threadcode--gt-number--string)
+- [`(unpaused status [STATUSFORMAT v] of [THREAD])`](#codeunpaused-status-statusformat-v-of-threadcode--gt-number--string)
+- [`(runtime phase [STATUSFORMAT v])`](#coderuntime-phase-statusformat-vcode--gt-number--string)
 
 _Type: **Static**_
 
@@ -1109,7 +1107,7 @@ _Type: **Static**_
 
 ### Set Boolean
 _Used in:_
-- [`[SETBOOLEAN v] warp mode for {SUBSTACK}`](#setboolean-v-warp-mode-for-substack---undefined)
+- [`[SETBOOLEAN v] warp mode for {SUBSTACK}`](#codesetboolean-v-warp-mode-for-substackcode--gt-undefined)
 
 _Type: **Static**_
 
@@ -1120,30 +1118,30 @@ _Type: **Static**_
 
 
 
-[^1]: Status is not a reliable indicator for whether a thread is alive. To reliably check if a thread is alive, instead you should use [`<[THREAD] is alive?>`](#thread-is-alive---boolean). This is because of [limbo](#thread-is-in-limbo---boolean).
+[^1]: Status is not a reliable indicator for whether a thread is alive. To reliably check if a thread is alive, instead you should use [`<[THREAD] is alive?>`](#codeltthread-is-alivegtcode--gt-boolean). This is because of [limbo](#codeltthread-is-in-limbogtcode--gt-boolean).
 
 [^2]: There are some exceptions where a thread is considered "killed" even though it caused its own termination:
     - When a thread runs `stop [all v]`, it is considered killed.
     - When `stop (SPRITE v)` is run, all threads running as `SPRITE` are considered killed, even if they caused it.
     - When a clone is deleted, all threads running as that clone are considered killed, even if they caused the deletion.
 
-[^3]: The _contents_ of the loop will **NOT** be run with [warp mode](#warp-mode---boolean) (all at once); only the loop itself has this behavior.
+[^3]: The _contents_ of the loop will **NOT** be run with [warp mode](#codeltwarp-modegtcode--gt-boolean) (all at once); only the loop itself has this behavior.
 
 [^4]: This block _will_ yield after a loop if the editor is frozen and warp timer is enabled to prevent crashes.
 
-[^5]: Threads that entered [limbo](#thread-is-in-limbo---boolean) this tick are not present in the [threads array](#threads---arraythread).
+[^5]: Threads that entered [limbo](#codeltthread-is-in-limbogtcode--gt-boolean) this tick are not present in the [threads array](#codethreadscode--gt-arraythread).
 
-[^6]: In practice, this should only be returned during a [predicate step](#this-is-a-predicate-step---boolean) of an edge-activated hat block.
+[^6]: In practice, this should only be returned during a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean) of an edge-activated hat block.
 
-[^7]: In practice, this should only be returned during a [predicate step](#this-is-a-predicate-step---boolean) of a non-edge-activated hat block.
+[^7]: In practice, this should only be returned during a [predicate step](#codeltthis-is-a-predicate-stepgtcode--gt-boolean) of a non-edge-activated hat block.
 
-[^8]: The current thread may become [orphaned](#thread-is-orphaned---boolean), in which case it is still considered [alive](#thread-is-alive---boolean), but it is not in the [threads array](#threads---arraythread) (by the definition of "orphaned").
+[^8]: The current thread may become [orphaned](#codeltthread-is-orphanedgtcode--gt-boolean), in which case it is still considered [alive](#codeltthread-is-alivegtcode--gt-boolean), but it is not in the [threads array](#codethreadscode--gt-arraythread) (by the definition of "orphaned").
 
-[^9]: Due to technical limitations[^10], during [predicate steps](#this-is-a-predicate-step---boolean), if the [current thread](#active-thread---thread) is [orphaned](#thread-is-orphaned---boolean), it is considered dead even though it should be considered alive (as it is not finished running).
+[^9]: Due to technical limitations[^10], during [predicate steps](#codeltthis-is-a-predicate-stepgtcode--gt-boolean), if the [current thread](#codeactive-threadcode--gt-thread) is [orphaned](#codeltthread-is-orphanedgtcode--gt-boolean), it is considered dead even though it should be considered alive (as it is not finished running).
 
-[^10]: Specifically, `sequencer.activeThread` is `null` during [predicate steps](#this-is-a-predicate-step---boolean). This means that in blocks that need to check if a thread is [alive](#thread-is-alive---boolean), when checking if the thread in question is the [current thread](#active-thread---thread), that will always be `false`, because there is no way of knowing what the current thread is. This could be resolved by passing the `thread` compiled global as an argument to all relevant functions, but I choose not to do that as then certain functions like `toJSON` that need to check if a thread is alive but do not have access to the `thread` compiled global would not work or show a slightly inaccurate result.
+[^10]: Specifically, `sequencer.activeThread` is `null` during [predicate steps](#codeltthis-is-a-predicate-stepgtcode--gt-boolean). This means that in blocks that need to check if a thread is [alive](#codeltthread-is-alivegtcode--gt-boolean), when checking if the thread in question is the [current thread](#codeactive-threadcode--gt-thread), that will always be `false`, because there is no way of knowing what the current thread is. This could be resolved by passing the `thread` compiled global as an argument to all relevant functions, but I choose not to do that as then certain functions like `toJSON` that need to check if a thread is alive but do not have access to the `thread` compiled global would not work or show a slightly inaccurate result.
 
-[^11]: In the [info text](#info-text-of-thread---string) of a thread, specifically in thread reporter bubbles and monitors during [predicate steps](#this-is-a-predicate-step---boolean) (the latter of which I am fairly sure is impossible), the "limbo" text will appear with slightly wrong conditions; if the [current thread](#active-thread---thread) is [orphaned](#thread-is-orphaned---boolean), it should not be considered in [limbo](#thread-is-in-limbo---boolean), because it is considered [alive](#thread-is-alive---boolean). However, in this case, the "limbo" text will appear anyway. As far as I am aware, this should never be an issue in thread reporter bubbles nor monitors. In the first case, when thread reporter bubbles are created, there is no defined current thread, so the issue shouldn't arise. In the second case, I do not think monitor threads can both be orphaned and the current thread simultaneously (but this is untested).
+[^11]: In the [info text](#codeinfo-text-of-threadcode--gt-string) of a thread, specifically in thread reporter bubbles and monitors during [predicate steps](#codeltthis-is-a-predicate-stepgtcode--gt-boolean) (the latter of which I am fairly sure is impossible), the "limbo" text will appear with slightly wrong conditions; if the [current thread](#codeactive-threadcode--gt-thread) is [orphaned](#codeltthread-is-orphanedgtcode--gt-boolean), it should not be considered in [limbo](#codeltthread-is-in-limbogtcode--gt-boolean), because it is considered [alive](#codeltthread-is-alivegtcode--gt-boolean). However, in this case, the "limbo" text will appear anyway. As far as I am aware, this should never be an issue in thread reporter bubbles nor monitors. In the first case, when thread reporter bubbles are created, there is no defined current thread, so the issue shouldn't arise. In the second case, I do not think monitor threads can both be orphaned and the current thread simultaneously (but this is untested).
 
 [^12]: Yield blocks in this extension and also possibly in other extensions will not have their yields suppressed. However, you can be confident that all yields in vanilla (non-extension) blocks are suppressed.
 
