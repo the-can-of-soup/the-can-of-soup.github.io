@@ -10,14 +10,15 @@ URL: [`https://raw.githubusercontent.com/the-can-of-soup/pm_threads/refs/heads/m
 
 **_This extension must be loaded unsandboxed, and does not support TurboWarp!_**
 
-> [!IMPORTANT]
->
-> This extension is still in beta. Though I will avoid it as much as possible, breaking changes may still be introduced. Also, expect bugs. The following have not been finished:
-> - Code for one or more blocks
-> - Thumbnail (?)
-> - Icon (?)
-> - Documentation
-> - Block shape (?)
+{% capture content %}
+This extension is still in beta. Though I will avoid it as much as possible, breaking changes may still be introduced. Also, expect bugs. The following have not been finished:
+- Code for one or more blocks
+- Thumbnail (?)
+- Icon (?)
+- Documentation
+- Block shape (?)
+{% endcapture %}
+{% include admonitions/important.md %}
 
 
 
