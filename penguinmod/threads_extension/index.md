@@ -24,6 +24,6 @@ This extension is still in beta. Though I will avoid it as much as possible, bre
 
 <br><br><br>
 
-_[This PR](https://github.com/PenguinMod/PenguinMod-Vm/pull/173) pretty much singlehandedly made this extension possible_
+_[This PR↗](https://github.com/PenguinMod/PenguinMod-Vm/pull/173) pretty much singlehandedly made this extension possible_
 
 _By the way that was my first contribution to PenguinMod 🎉_
