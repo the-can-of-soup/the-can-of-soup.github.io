@@ -30,6 +30,7 @@
       for (let i = 0; i < refCount; i++) {
         const backRef = document.createElement('a');
         backRef.className = 'footnote-backref';
+        backRef.id = `fnbackref${fnId}:${i}`
         backRef.href = `#fnref${fnId}:${i}`;
         backRef.innerHTML = i === 0 ? `↩` : `↩<sup>${i + 1}</sup>`;
         lastBackRef.after(backRef);
@@ -67,7 +68,7 @@
         let fnId = hash.split(':')[0].slice(2); // e.g. "12"
         let refId = hash.split(':')[1]; // e.g. "3"
         let footnote = document.getElementById(`fn${fnId}`);
-        let backRef = document.getElementById(`fnref${fnId}:${refId}`);
+        let backRef = document.getElementById(`fnbackref${fnId}:${refId}`);
         footnote.classList.add('target-footnote');
         backRef.classList.add('target-footnote-backref');
         footnote.scrollIntoView();
