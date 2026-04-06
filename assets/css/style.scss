@@ -368,4 +368,14 @@ $text-white:        $white !default;
     border-radius: 6px;
     pointer-events: none;
   }
+
+  // Footnote back-references
+  .footnote-backref {
+    filter: grayscale();
+    opacity: 50%;
+  }
+  .footnote-backref.target-footnote-backref {
+    filter: none;
+    opacity: 100%;
+  }
 }
