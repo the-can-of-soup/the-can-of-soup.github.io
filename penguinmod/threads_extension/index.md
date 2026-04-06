@@ -18,7 +18,7 @@ This extension is still in beta. Though I will avoid it as much as possible, bre
 - Documentation
 - Block shape (?)
 {% endcapture %}
-{% include admonitions/important.md %}
+{% include admonitions/important.md content=content %}
 
 
 
