@@ -353,11 +353,11 @@ $text-white:        $white !default;
   }
 
   // Highlighted footnote
-  .footnote:target {
+  .footnote.target-footnote {
     color: $text-gray-dark;
     position: relative;
   }
-  .footnote:target::before {
+  .footnote.target-footnote::before {
     content: "";
     position: absolute;
     top: -0.5rem;
