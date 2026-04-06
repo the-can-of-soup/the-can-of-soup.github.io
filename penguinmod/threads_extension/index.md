@@ -2,7 +2,7 @@
 title: Threads
 header_url: "/penguinmod/threads_extension/"
 ---
-[<img src="https://img.shields.io/github/stars/the-can-of-soup/pm_threads?style=for-the-badge&logo=github">](https://github.com/the-can-of-soup/pm_threads) [<img src="https://img.shields.io/badge/Documentation-gray?style=for-the-badge">](docs/) {% site.penguinmod_profile_badge %}
+[<img src="https://img.shields.io/github/stars/the-can-of-soup/pm_threads?style=for-the-badge&logo=github">](https://github.com/the-can-of-soup/pm_threads) [<img src="https://img.shields.io/badge/Documentation-gray?style=for-the-badge">](docs/) {% site.data.penguinmod_profile_badge %}
 
 A PenguinMod extension that lets you take full control of the sequencer so you can fix all of those pesky one-frame-off bugs.
 
