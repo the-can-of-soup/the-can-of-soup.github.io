@@ -351,4 +351,19 @@ $text-white:        $white !default;
     border-top: 1px solid #3d444d;
     font-size: 12px;
   }
+
+  // Highlighted footnote
+  li:target {
+    color: $text-gray-dark;
+  }
+  li:target::before {
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    bottom: -0.5rem;
+    left: -1.5rem;
+    right: -0.5rem;
+    border: 2px solid #1f6feb;
+    border-radius: 6px;
+  }
 }
