@@ -19,6 +19,7 @@
       const refId = footnoteRefCounts.get(fnId) ?? 0;
       footnoteRefCounts.set(fnId, refId + 1);
       ref.id = `fnref${fnId}:${refId}`;
+      ref.href = `#fn${fnId}:${refId}`;
     }
     
     // Add better back-references
@@ -42,6 +43,27 @@
     for (const footnote of footnotes) {
       footnote.classList.add('footnote');
     }
+
+    // Reimplement scrolling to footnotes with new reference identifiers
+    function handleHash() {
+      let hash = window.location.hash; // e.g. "#fn12:3"
+      if (hash === '') return;
+      hash = hash.slice(1); // e.g. "fn12:3"
+
+      const oldTargetFns = document.getElementsByClassName('target-footnote');
+      for (const fn of oldTargetFns) {
+        fn.classList.remove('target-footnote');
+      }
+      
+      if (hash.startsWith('fn') && !hash.startsWith('fnref')) {
+        let fnId = hash.split(':')[0].slice(2); // e.g. "12"
+        let footnote = document.getElementById(`fn${fnId}`);
+        footnote.classList.add('target-footnote');
+        footnote.scrollIntoView();
+      }
+    }
+    window.addEventListener('hashchange', handleHash);
+    handleHash();
   }
 
   fixFootnotes();
