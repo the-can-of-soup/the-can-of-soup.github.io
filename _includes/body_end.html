@@ -36,6 +36,12 @@
       }
       oldBackRef.remove();
     }
+
+    // Add class to footnotes
+    let footnotes = Array.from(document.getElementsByClassName('footnotes')[0].firstElementChild.children);
+    for (const footnote of footnotes) {
+      footnote.classList.add('footnote');
+    }
   }
 
   fixFootnotes();
