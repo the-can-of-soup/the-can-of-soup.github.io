@@ -371,7 +371,7 @@ $text-white:        $white !default;
 
   // Footnote back-references
   .footnote-backref {
-    filter: grayscale();
+    filter: grayscale(100%);
     opacity: 50%;
   }
   .footnote-backref.target-footnote-backref {
