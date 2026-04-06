@@ -366,5 +366,6 @@ $text-white:        $white !default;
     right: -0.5rem;
     border: 2px solid #1f6feb;
     border-radius: 6px;
+    pointer-events: none;
   }
 }
