@@ -50,15 +50,26 @@
       if (hash === '') return;
       hash = hash.slice(1); // e.g. "fn12:3"
 
+      // Remove class from old target footnote (if it exists)
       const oldTargetFns = document.getElementsByClassName('target-footnote');
       for (const fn of oldTargetFns) {
         fn.classList.remove('target-footnote');
       }
-      
+
+      // Remove class from old target footnote back-reference (if it exists)
+      const oldTargetBackRefs = document.getElementsByClassName('target-footnote-backref');
+      for (const backRef of oldTargetBackRefs) {
+        backRef.classList.remove('target-footnote-backref');
+      }
+
+      // Highlight and scroll to footnote
       if (hash.startsWith('fn') && !hash.startsWith('fnref')) {
         let fnId = hash.split(':')[0].slice(2); // e.g. "12"
+        let refId = hash.split(':')[1]; // e.g. "3"
         let footnote = document.getElementById(`fn${fnId}`);
+        let backRef = document.getElementById(`fnref${fnId}:${refId}`);
         footnote.classList.add('target-footnote');
+        backRef.classList.add('target-footnote-backref');
         footnote.scrollIntoView();
       }
     }
