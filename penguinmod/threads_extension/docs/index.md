@@ -48,8 +48,8 @@ A "thread" is an _instance_ of a stack. Whenever a stack runs, it is being run b
 
 If a stack is running multiple times at once, for example, if two clones are both running the `when I start as a clone` stack, there will be multiple threads executing that stack, one for each clone. Conversely, if a stack is not being executed at all, there will be no threads executing that stack.
 
-<video alt="Figure 1" src="assets/Stacks & Threads - Figure 1.mp4" width="480" controls>
+<video alt="Figure 1" src="assets/Stacks & Threads - Figure 1.mp4" width="480" controls />
 
 When custom blocks are executed, they do not create a new thread. They are executed by the same thread running the stack that calls them.
 
-<img src="Figure 2" src="assets/Stacks & Threads - Figure 2.gif" width="480">
+<img src="Figure 2" src="assets/Stacks & Threads - Figure 2.gif" width="480" />
