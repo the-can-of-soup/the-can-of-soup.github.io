@@ -11,7 +11,7 @@ header_url: "/penguinmod/threads_extension/docs/"
 
 ### Table of Contents
 - [General](#general)
-  - [Threads & Stacks](#threads-amp-stacks)
+  - [Stacks & Threads](#stacks-amp-threads)
 
 {% capture content %}
 TO-DO: Write these sections:
@@ -40,10 +40,16 @@ TO-DO: Write these sections:
 
 ## General
 
-### Threads & Stacks
+### Stacks & Threads
 
-... TODO ...
+PenguinMod code is made of "stacks". A stack is a group of code blocks that all are connected to the same hat; i.e., if you drag a hat block in the editor with your mouse, all blocks that are in the same stack as it will move as well.
 
-<video src="assets/Threads%20&%20Stacks.mp4" width="480" controls></video>
+A "thread" is an _instance_ of a stack. Whenever a stack runs, it is being run by a thread. You can imagine it as an invisible object that causes the code of a stack to run, stepping through its blocks one at a time (well, actually, multiple at a time, but we will get to that later).
 
-... TODO ...
+If a stack is running multiple times at once, for example, if two clones are both running the `when I start as a clone` stack, there will be multiple threads executing that stack, one for each clone. Conversely, if a stack is not being executed at all, there will be no threads executing that stack.
+
+<video alt="Figure 1" src="assets/Stacks & Threads - Figure 1.mp4" width="480" controls>
+
+When custom blocks are executed, they do not create a new thread. They are executed by the same thread running the stack that calls them.
+
+<img src="Figure 2" src="assets/Stacks & Threads - Figure 2.gif" width="480">
