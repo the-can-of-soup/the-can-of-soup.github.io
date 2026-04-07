@@ -64,7 +64,7 @@ The sequencer has three important time units: "steps", "ticks", and "frames". Fr
 
 Every tick, the sequencer will trigger a step in every thread in the queue, one after another. This means that steps occur inside of ticks, which occur inside of frames. Steps are thread-specific, meaning they apply to a single thread, but ticks and frames are global, meaning they apply to the entire project.
 
-<video alt="Figure 1" src="assets/Sequencer Basics - Figure 1.mp4" width="480"></video><br>
+<video alt="Figure 1" src="assets/Sequencer Basics - Figure 1.mp4" width="480" controls></video><br>
 _Figure 1_
 
 In figure 1, notice how the sequencer alternates between the running threads, and steps each of them once. A tick is one full alternation where both thread 1 and 2 are stepped. If this code were to be run in realtime, you would never see the small sizes. This is because thread 2 always was stepped last at the end of every tick, so the only frames you see are the ones right after thread 2.
