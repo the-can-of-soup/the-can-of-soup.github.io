@@ -52,4 +52,4 @@ If a stack is running multiple times at once, for example, if two clones are bot
 
 When custom blocks are executed, they do not create a new thread. They are executed by the same thread running the stack that calls them.
 
-<img src="Figure 2" src="assets/Stacks & Threads - Figure 2.gif" width="480" />
+<img alt="Figure 2" src="assets/Stacks & Threads - Figure 2.gif" width="480" />
