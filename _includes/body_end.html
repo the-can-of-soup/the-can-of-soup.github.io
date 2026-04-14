@@ -1,5 +1,7 @@
 <script>
   function fixFootnotes() {
+    let footnotesContainer = document.getElementsByClassName('footnotes')[0];
+    if (footnotesContainer === undefined) return;
     let refs = Array.from(document.getElementsByClassName('footnote-ref')).map(el => el.firstElementChild);
     let backRefs = Array.from(document.getElementsByClassName('footnote-backref'));
     
@@ -40,7 +42,7 @@
     }
 
     // Add class to footnotes
-    let footnotes = Array.from(document.getElementsByClassName('footnotes')[0].firstElementChild.children);
+    let footnotes = Array.from(footnotesContainer.firstElementChild.children);
     for (const footnote of footnotes) {
       footnote.classList.add('footnote');
     }
