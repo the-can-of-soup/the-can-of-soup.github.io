@@ -20,6 +20,10 @@ This extension is still in beta. Though I will avoid it as much as possible, bre
 {% endcapture %}
 {% include admonitions/important.md content=content %}
 
+## Known Incompatible Extensions
+Extensions listed here are not compatible with Threads, and compatibility is not planned at this time.
+- SharkPool's Extra Controls
+
 
 
 <br><br><br>
