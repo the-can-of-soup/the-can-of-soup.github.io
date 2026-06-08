@@ -293,7 +293,7 @@ The null thread cannot store thread variables.
 ### `set [VARIABLE] in [THREAD] to [VALUE]` -> Undefined
 <img src="assets/blocks/set_foo_in_to_bar.png">
 
-Sets the [thread variable](#codeget-variable-in-threadcode--gt-any) named `VARIABLE` in `THREAD` to `VALUE`.
+Sets the [thread variable](#thread-variables) named `VARIABLE` in `THREAD` to `VALUE`.
 
 <details>
   <summary>Internal behavior</summary>
@@ -304,7 +304,7 @@ Sets the [thread variable](#codeget-variable-in-threadcode--gt-any) named `VARIA
 ### `(variables in [THREAD])` -> Array\[String\]
 <img src="assets/blocks/variables_in.png">
 
-Returns an array containing the name of every [thread variable](#codeget-variable-in-threadcode--gt-any) stored in `THREAD`.
+Returns an array containing the name of every [thread variable](#thread-variables) stored in `THREAD`.
 
 <details>
   <summary>Internal behavior</summary>
@@ -315,7 +315,7 @@ Returns an array containing the name of every [thread variable](#codeget-variabl
 ### `delete [VARIABLE] in [THREAD]` -> Undefined
 <img src="assets/blocks/delete_foo_in.png">
 
-Deletes the [thread variable](#codeget-variable-in-threadcode--gt-any) named `VARIABLE` from `THREAD`.
+Deletes the [thread variable](#thread-variables) named `VARIABLE` from `THREAD`.
 
 <details>
   <summary>Internal behavior</summary>
