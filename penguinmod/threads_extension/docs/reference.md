@@ -873,7 +873,7 @@ Returns the current "runtime phase" formatted as specified by `STATUSFORMAT`. He
 
 | Phase # | Phase text       | Internal name    | Description                                                                               |
 |---------|------------------|------------------|-------------------------------------------------------------------------------------------|
-| 0       | Not stepping     | `NOT_STEPPING`   | `runtime._step` (function that executes a frame) is not currently running.*               |
+| 0       | Not stepping     | `NOT_STEPPING`   | `runtime._step` (the internal function that executes a frame) is not currently running.*  |
 | 1       | Frame start      | `FRAME_START`    | No ticks have occurred yet this frame.[^6]                                                |
 | 2       | Before execution | `BEFORE_EXECUTE` | Fully prepared to start the first tick.[^7]                                               |
 | 3       | Execution        | `EXECUTION`      | The first step of the first tick of the frame is about to happen or has already happened. |
@@ -888,7 +888,7 @@ Returns the current "runtime phase" formatted as specified by `STATUSFORMAT`. He
   
   | Internal name    | Set                                                                                                                               |
   |------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-  | `NOT_STEPPING`   | When the exension is initialized or when the `RUNTIME_STEP_END` event is fired.                                                   |
+  | `NOT_STEPPING`   | When the extension is initialized or when the `RUNTIME_STEP_END` event is fired.                                                  |
   | `FRAME_START`    | When the `RUNTIME_STEP_START` event is fired.                                                                                     |
   | `BEFORE_EXECUTE` | When the `BEFORE_EXECUTE` event is fired.                                                                                         |
   | `EXECUTION`      | When the `BEFORE_THREAD_CONSIDERED` event is fired. _([I added that!↗](https://github.com/PenguinMod/PenguinMod-Vm/pull/175) :D)_ |
