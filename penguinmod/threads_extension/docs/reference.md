@@ -856,7 +856,7 @@ During a predicate step, the hat block (and its inputs) are executed. If the hat
 
 Because predicate steps are performed outside of the execution phase of a frame, most normal sequencer behavior is not present during these. Specifically, the [threads array](#codethreadscode--gt-arraythread) and [active index](#codeactive-indexcode--gt-number) are irrelevant here. Instead, predicate steps are always performed before the first tick of a frame, and therefore before any other threads in the threads array step (except other executable hat threads).
 
-Because the only blocks executed during predicate steps are hat blocks and their inputs, the only time this block will ever realistically return `true` is when it is inside an inline block (or similar) inside of an input of a hat block.
+Because the only blocks executed during predicate steps are hat blocks and their inputs, the only time this block will ever realistically return `true` is when it is inside an inline block (or similar) inside an input of a hat block.
 
 <details>
   <summary>Internal behavior</summary>
