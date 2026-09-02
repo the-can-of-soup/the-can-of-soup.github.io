@@ -902,7 +902,7 @@ Returns the current "runtime phase" formatted as specified by `STATUSFORMAT`. He
 ### `<warp mode>` -> Boolean
 <img src="assets/blocks/warp_mode.png">
 
-Returns `true` if warp mode is enabled. When warp mode is enabled, **all vanilla yields are ignored**[^12].
+Returns `true` if warp mode is enabled. When warp mode is enabled, **all vanilla yields are suppressed**[^12].
 
 Some cases where warp mode is enabled:
 - Code inside an `all at once` block
